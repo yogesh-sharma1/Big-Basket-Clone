@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+</head>
+<style>
+    /* Center the form on the page */
+h1{
+  text-align:center;
+  color: red;
+}
+form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* Style the form labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style the form input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+</style>
+<body>
+	<h1>Sign Up</h1>
+	<form>
+		<label for="name">Full Name:</label>
+		<input type="text" id="name" name="name"><br><br>
+		
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+		
+		<label for="organization">Organization:</label>
+		<input type="text" id="organization" name="organization"><br><br>
+		
+		<label for="new-user">I am a new user:</label>
+		<input type="radio" id="new-user" name="user-type" value="new-user" checked><br>
+		
+		<label for="existing-user">I already have an account:</label>
+		<input type="radio" id="existing-user" name="user-type" value="existing-user"><br><br>
+		
+		<input type="submit" value="Sign up">
+	</form>
+</body>
+</html>
