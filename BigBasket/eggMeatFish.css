@@ -1,0 +1,52 @@
+
+#headerAndFilter{
+    display: flex;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+#headerAndFilter>h2{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background-color: beige;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+#filterByPrice{
+    height: 30px;
+}
+#eggMeatFishLandingImage>img{
+    width:100%;
+    margin-bottom: 20px;
+}
+
+#mainDiv{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:20px;
+   
+}
+#mainDiv > div{
+    padding:20px;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -6px;
+}
+#mainDiv > div > div{
+    display:flex;
+    margin-top:-20px;
+}
+p+p{
+    margin-left: 40px;
+    text-decoration: line-through;
+}
+img{
+    width: 70%;
+    height:200px;
+}
+#mainDiv > div > button{
+    border-radius: 15px;
+    background-color: yellowgreen;
+    margin-left: 100px;
+}

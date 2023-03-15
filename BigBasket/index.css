@@ -1,0 +1,71 @@
+
+#homePageImage>img{
+    width:100%;
+    margin-bottom: 20px;
+}
+#homePageLastImage>img{
+    width:100%;
+    margin-bottom: 20px;
+}
+#homePageButtons{
+    display:flex;
+    gap: 10px;
+    width: 89%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+#mainDiv{
+    display:grid;
+    grid-template-columns: repeat(5,1fr)
+   
+    
+}
+#mainDiv > div > button{
+    border-radius: 15px;
+    background-color: yellowgreen;
+    margin-left: 40px;
+}
+#mainDiv > div{
+    padding:20px;
+    width: 85%;
+   
+    margin-bottom: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+#mainDiv > div > div{
+    display:flex;
+    margin-top:-20px;
+}
+p+p{
+    margin-left: 40px;
+    text-decoration: line-through;
+}
+#mainDiv>img{
+    width: 70%;
+    height:200px;
+}
+
+#indexGroceryHeader,#indexOffers,#homePageLastHeader{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color:rgb(68, 68, 68);
+    font-size: 24px;
+}
+#indexGroceryHeader+div{
+    width:89%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#bankOffers{
+    display:flex;
+    width:89%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#bankOffers>img{
+    width:24%;
+    margin-right:17px;
+    cursor: pointer;
+}
