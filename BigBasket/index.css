@@ -1,7 +1,10 @@
 
 #homePageImage>img{
     width:100%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 20px;
+    
 }
 #homePageLastImage>img{
     width:100%;
@@ -67,5 +70,79 @@ p+p{
 #bankOffers>img{
     width:24%;
     margin-right:17px;
+    cursor: pointer;
+}
+#homePageAddress{
+    display: flex;
+    align-items: top;
+   
+   justify-content: right;
+   gap:20px;
+}
+#homePageAddress>h6{
+    margin-top: -1px;
+}
+#homePageAddress>img{
+    width: 18px;
+    display: inline-block;
+    background: url(../img/caret.svg);
+    height: 10px;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: 2px 4px;
+    cursor: pointer;
+    margin-left: -15px;
+}
+#homePageLogoAndSearchbar{
+    display:flex;
+    width:89%;
+    margin-top: -15px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+#homePageLogoAndSearchbar>img{
+    width:160px;
+    height:70px;
+}
+#homePageLogoAndSearchbar>input[type=text]{
+    width:700px;
+    height:10px;
+    padding: 10px;
+}
+#cartBasket>img{
+    width:70px;
+    height:55px;
+}
+#cartBasket{
+    display: flex;
+}
+#totaItems{
+    margin-right:10px;
+    margin-top: -90px;
+}
+#homePageFilter{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+    width: 90%;
+}
+#homePageFilter>select{
+    height:30px;
+    width:220px;
+    cursor: pointer;
+    margin-top: 16px;
+}
+#homePageFilter>select>div>h3{
+     margin-left: 20px;
+     
+}
+#homePageFilter>select>div{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border:1px solid #ccc;
     cursor: pointer;
 }

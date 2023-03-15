@@ -73,22 +73,7 @@ function addtoCart(product){
   localStorage.setItem("cart-list",JSON.stringify(cartArrIndexGrocery))
 }
 
-function neupass(){
+document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
 
-}
 
-function ayurveda(){
 
-}
-
-function buyMoreSaveMore(){
-
-}
-
-function dealsofTheWeek(){
-
-}
-
-function comboStore(){
-
-}
