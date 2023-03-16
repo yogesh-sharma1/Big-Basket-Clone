@@ -3,85 +3,97 @@ var buyMoreSaveMore = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40178581_9-gillette-mach-3-bladed-shaving-cartridgesrazor-with-lubrication-strip-protects-skin.jpg",
          name: "Gillette Mach 3 Bladed Shaving Cartridges/Razor - With Lubrication Strip, Protects Skin, 16 pcs",
-      price: "Rs 1443.75 (Rs.90.23/pc)",
+      price: 1443.75,
       strikedoffprice: 1925,
+      quantity:1
     },
     {
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/236283_4-gillette-foam-shave-lathers-quickly-hydrates-regular.jpg",
         name: "Gillette Foam Shave - Lathers Quickly & Hydrates, Regular, 418 g ",
-      price: "Rs 199.20 (Rs.199.2/pc)",
+      price: 199.20 ,
       strikedoffprice: 249,
+      quantity:1
     },
     {
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
         name: "Real Fruit Power Juice - Mixed, 1 L",
-      price: "Rs 102 (Rs.102/L)",
+      price: 102,
       strikedoffprice: 120,
+      quantity:1
     },
     {
       image_url:
       "https://www.bigbasket.com/media/uploads/p/s/40056927_9-park-avenue-perfume-spray-voyage.jpg",
        name:"Park Avenue Perfume Spray - Voyage, 220 ml (Mega Pack)",
-      price:"Rs 262.50 (Rs.262.5/pc)",
+      price:262.50 ,
       strikedoffprice: 375,
+      quantity:1
     },
     {
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/236283_4-gillette-foam-shave-lathers-quickly-hydrates-regular.jpg",
           name: "Gillette Foam Shave - Lathers Quickly & Hydrates, Regular, 418 g ",
-        price: "Rs 199.20 (Rs.199.2/pc)",
+        price: 199.20,
         strikedoffprice: 249,
+        quantity:1
       },
       {
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
           name: "Real Fruit Power Juice - Mixed, 1 L",
-        price: "Rs 102 (Rs.102/L)",
+        price: 102 ,
         strikedoffprice: 120,
+        quantity:1
       },
       {
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/40178581_9-gillette-mach-3-bladed-shaving-cartridgesrazor-with-lubrication-strip-protects-skin.jpg",
            name: "Gillette Mach 3 Bladed Shaving Cartridges/Razor - With Lubrication Strip, Protects Skin, 16 pcs",
-        price: "Rs 1443.75 (Rs.90.23/pc)",
+        price: 1443.75,
         strikedoffprice: 1925,
+        quantity:1
       },
       {
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/236283_4-gillette-foam-shave-lathers-quickly-hydrates-regular.jpg",
           name: "Gillette Foam Shave - Lathers Quickly & Hydrates, Regular, 418 g ",
-        price: "Rs 199.20 (Rs.199.2/pc)",
+        price: 199.20 ,
         strikedoffprice: 249,
+        quantity:1
       },
       {
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
           name: "Real Fruit Power Juice - Mixed, 1 L",
-        price: "Rs 102 (Rs.102/L)",
+        price: 102,
         strikedoffprice: 120,
+        quantity:1
       },
       {
         image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40056927_9-park-avenue-perfume-spray-voyage.jpg",
          name:"Park Avenue Perfume Spray - Voyage, 220 ml (Mega Pack)",
-        price:"Rs 262.50 (Rs.262.5/pc)",
+        price:262.50 ,
         strikedoffprice: 375,
+        quantity:1
       },
       {
           image_url:
             "https://www.bigbasket.com/media/uploads/p/s/236283_4-gillette-foam-shave-lathers-quickly-hydrates-regular.jpg",
             name: "Gillette Foam Shave - Lathers Quickly & Hydrates, Regular, 418 g ",
-          price: "Rs 199.20 (Rs.199.2/pc)",
+          price: 199.20,
           strikedoffprice: 249,
+          quantity:1
         },
         {
           image_url:
             "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
             name: "Real Fruit Power Juice - Mixed, 1 L",
-          price: "Rs 102 (Rs.102/L)",
+          price: 102,
           strikedoffprice: 120,
+          quantity:1
         },
 ]
 
@@ -104,6 +116,39 @@ function buyMoreSaveMoreFun(buyMoreSaveMore){
         price.textContent=el.price
         let strikedOffPrice=document.createElement("p")
         strikedOffPrice.textContent=el.strikedoffprice
+
+
+        let qDiv=document.createElement("div")
+        qDiv.setAttribute("class","quantity buttons_added")
+        let minInput=document.createElement("input")
+        minInput.setAttribute("type","button")
+        minInput.setAttribute("value","-")
+        minInput.setAttribute("class","minus")
+        
+        let dataInput=document.createElement("input")
+        dataInput.setAttribute("type","number")
+        dataInput.setAttribute("step","1")
+        dataInput.setAttribute("min","1")
+        dataInput.setAttribute("name","quantity")
+        dataInput.setAttribute("value","1")
+        dataInput.setAttribute("title","Qty")
+        dataInput.setAttribute("class","input-text qty text")
+        dataInput.setAttribute("size","4")
+        dataInput.setAttribute("pattern","")
+        dataInput.setAttribute("inputmode","")
+
+        let plusInput=document.createElement("input")
+        plusInput.setAttribute("type","button")
+        plusInput.setAttribute("value","+")
+        plusInput.setAttribute("class","plus")
+       
+        minInput.addEventListener("click",function(){
+          decreaseCount(event, this,el)
+        }) 
+        plusInput.addEventListener("click",function(){
+          increaseCount(event, this,el)
+        }) 
+
         let button=document.createElement("button")
         button.textContent="Add to Cart"
         button.addEventListener("click", function(){
@@ -111,7 +156,8 @@ function buyMoreSaveMoreFun(buyMoreSaveMore){
         })
 
         priceDiv.append(price,strikedOffPrice)
-        div.append(image,desc,priceDiv,button)
+        qDiv.append(minInput,dataInput,plusInput)
+        div.append(image,desc,priceDiv,qDiv,button)
         document.getElementById("mainDiv").append(div)
     })
     
@@ -122,4 +168,27 @@ var cartArr=JSON.parse(localStorage.getItem("cart-list")) || []
 function addtoCart(product){
   cartArr.push(product);
   localStorage.setItem("cart-list",JSON.stringify(cartArr))
+  alert("Successfully added to the cart.")
+  document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
+}
+document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
+
+function increaseCount(a, b, elem) {
+  var input = b.previousElementSibling;
+  var value = parseInt(input.value, 10); 
+  value = isNaN(value)? 0 : value;
+  value ++;
+  input.value = value;
+  elem.quantity=value;
+  
+}
+function decreaseCount(a, b,elem) {
+  var input = b.nextElementSibling;
+  var value = parseInt(input.value, 10); 
+  if (value > 1) {
+    value = isNaN(value)? 0 : value;
+    value --;
+    input.value = value;
+    elem.quantity=value;
+  }
 }

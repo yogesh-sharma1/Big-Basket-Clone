@@ -3,57 +3,65 @@ var eggMeatFish = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/10000909_8-fresho-chicken-curry-cut-without-skin-antibiotic-residue-free.jpg",
         name: "Fresho Chicken - Curry Cut Without Skin, Antibiotic Residue-Free, 6 To 9 Pcs, 250 g",
-      price: "Rs 80 (Rs.0.32/g)",
-      strikedoffprice: 120,
+        price: 80,
+        strikedoffprice: 120,
+        quantity:1
     },
     {
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/150502_6-fresho-farm-eggs-table-tray-medium-antibiotic-residue-free.jpg",
          name: "Fresho Farm Eggs - Table Tray, Medium, Antibiotic Residue-Free, 30 pcs",
-      price: "Rs 209 (Rs.6.97/PC)",
+      price: 209,
       strikedoffprice: 255,
+      quantity:1
     },
     {
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/1221156_1-fresho-chicken-curry-cut-without-skin-500-g-chicken-breast-boneless-500-g.jpg",
          name: "Fresho Chicken Curry Cut Without Skin 500 g + Chicken Breast - Boneless 500 g, Combo 2 Items",
-      price: "Rs 297.35",
+      price: 297.35,
       strikedoffprice: 479,
+      quantity:1
     },
     {
       image_url:
       "https://www.bigbasket.com/media/uploads/p/s/40227694_1-fresho-rohu-bengali-cut-large-fresh.jpg",
       name:"Fresho Rohu Fish Curry Cut/Bengali Cut, 250 g With Head",
-      price:"Rs 116 (Rs.0.46/g",
+      price: 116,
       strikedoffprice: 194,
+      quantity:1
     },
     {
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/1221156_1-fresho-chicken-curry-cut-without-skin-500-g-chicken-breast-boneless-500-g.jpg",
            name: "Fresho Chicken Curry Cut Without Skin 500 g + Chicken Breast - Boneless 500 g, Combo 2 Items",
-        price: "Rs 297.35",
+        price: 297.35,
         strikedoffprice: 479,
+        quantity:1
       },
       {
         image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40227694_1-fresho-rohu-bengali-cut-large-fresh.jpg",
         name:"Fresho Rohu Fish Curry Cut/Bengali Cut, 250 g With Head",
-        price:"Rs 116 (Rs.0.46/g",
+        price: 116,
         strikedoffprice: 194,
+        quantity:1
       },
       {
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/10000909_8-fresho-chicken-curry-cut-without-skin-antibiotic-residue-free.jpg",
           name: "Fresho Chicken - Curry Cut Without Skin, Antibiotic Residue-Free, 6 To 9 Pcs, 250 g",
-        price: "Rs 80 (Rs.0.32/g)",
+        price: 80,
         strikedoffprice: 120,
+        quantity:1
       },
       {
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/150502_6-fresho-farm-eggs-table-tray-medium-antibiotic-residue-free.jpg",
            name: "Fresho Farm Eggs - Table Tray, Medium, Antibiotic Residue-Free, 30 pcs",
-        price: "Rs 209 (Rs.6.97/PC)",
+        price: 209 ,
         strikedoffprice: 255,
+        quantity:1
       },
 ] 
  
@@ -76,6 +84,39 @@ function eggMeatFishFun(eggMeatFishArr){
         price.textContent=el.price
         let strikedOffPrice=document.createElement("p")
         strikedOffPrice.textContent=el.strikedoffprice
+
+
+        let qDiv=document.createElement("div")
+        qDiv.setAttribute("class","quantity buttons_added")
+        let minInput=document.createElement("input")
+        minInput.setAttribute("type","button")
+        minInput.setAttribute("value","-")
+        minInput.setAttribute("class","minus")
+        
+        let dataInput=document.createElement("input")
+        dataInput.setAttribute("type","number")
+        dataInput.setAttribute("step","1")
+        dataInput.setAttribute("min","1")
+        dataInput.setAttribute("name","quantity")
+        dataInput.setAttribute("value","1")
+        dataInput.setAttribute("title","Qty")
+        dataInput.setAttribute("class","input-text qty text")
+        dataInput.setAttribute("size","4")
+        dataInput.setAttribute("pattern","")
+        dataInput.setAttribute("inputmode","")
+
+        let plusInput=document.createElement("input")
+        plusInput.setAttribute("type","button")
+        plusInput.setAttribute("value","+")
+        plusInput.setAttribute("class","plus")
+       
+        minInput.addEventListener("click",function(){
+          decreaseCount(event, this,el)
+        }) 
+        plusInput.addEventListener("click",function(){
+          increaseCount(event, this,el)
+        }) 
+
         let button=document.createElement("button")
         button.textContent="Add to Cart"
         button.addEventListener("click", function(){
@@ -83,7 +124,8 @@ function eggMeatFishFun(eggMeatFishArr){
         })
 
         priceDiv.append(price,strikedOffPrice)
-        div.append(image,desc,priceDiv,button)
+        qDiv.append(minInput,dataInput,plusInput)
+        div.append(image,desc,priceDiv,qDiv,button)
         document.getElementById("mainDiv").append(div)
     })
     
@@ -94,11 +136,17 @@ var cartArr=JSON.parse(localStorage.getItem("cart-list")) || []
 function addtoCart(product){
   cartArr.push(product);
   localStorage.setItem("cart-list",JSON.stringify(cartArr))
+  alert("Successfully added to the cart.")
+  document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
 }
+
+document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
 
 document.getElementById("filterByPrice").addEventListener("change",sortByPriceFun)
 
 function sortByPriceFun(){
+  console.log("hi")
+    console.log(eggMeatFish)
     let filterByPriceVal=document.getElementById("filterByPrice").value
     
     
@@ -108,14 +156,34 @@ function sortByPriceFun(){
          }
          if(filterByPriceVal=="lth"){
             eggMeatFish=eggMeatFish.sort(function(a,b){
-                 return a.strikedoffprice-b.strikedoffprice
+                 return a.price-b.price
             })
          }
          if(filterByPriceVal=="htl"){
             eggMeatFish=eggMeatFish.sort(function(a,b){
-                return b.strikedoffprice-a.strikedoffprice
+                return b.price-a.price
            })
          }
          console.log(eggMeatFish)
          eggMeatFishFun(eggMeatFish)
+}
+
+function increaseCount(a, b, elem) {
+  var input = b.previousElementSibling;
+  var value = parseInt(input.value, 10); 
+  value = isNaN(value)? 0 : value;
+  value ++;
+  input.value = value;
+  elem.quantity=value;
+  
+}
+function decreaseCount(a, b,elem) {
+  var input = b.nextElementSibling;
+  var value = parseInt(input.value, 10); 
+  if (value > 1) {
+    value = isNaN(value)? 0 : value;
+    value --;
+    input.value = value;
+    elem.quantity=value;
+  }
 }
