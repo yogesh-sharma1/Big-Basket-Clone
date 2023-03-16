@@ -52,10 +52,37 @@ table{
 }
 #whole-table{
     padding: 0px 120px;
+    
+}
+.size{
+    width: 500px;
 }
 #box {
     border: 1px solid rgb(101, 99, 99);
     margin: 0px 150px 0px 150px;
     padding: 10px 50px;
     font-family: ProximaNovaA-Regular;
+}
+/*medium screen*/
+@media screen and (min-width:760px) and (max-width:1024px) {
+    #page{
+        flex-direction: column;
+    }
+
+    #whole-table{
+        flex-direction: column;
+    }
+    
+}
+
+/*small screen*/
+@media screen and (min-width:320px) and (max-width:760px) {
+    #page{
+        flex-direction: column;
+    }
+
+    #whole-table{
+        flex-direction: column;
+    }
+    
 }
