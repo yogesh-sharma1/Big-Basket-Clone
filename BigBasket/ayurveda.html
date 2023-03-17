@@ -13,48 +13,61 @@
         >
     </div> -->
     <div id="staticHeader">
-    <div id="homePageAddress">
-        <span>1860 123 1000</span>
-        <span id="address">Kolkata, West Bengal</span>
-        <img src="https://www.bbassets.com/static/v2644/custPage/build/content/img/caret.svg"
-        >
-      </div>
-      <div id="homePageLogoAndSearchbar">
-        <img src="https://www.bbassets.com/static/staticContent/bb_logo.png"
-        alt="bigbasketLogo">
-        <input type="text" placeholder="Search for Products..."></input>
-        <div id="cartBasket">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUjJrw_2Rg7W6EGZI2BB4VaT750Ch40aoiBA&usqp=CAU"
-          alt="basketImage">
-          <div>
-            <div id="basketItems">
-                <p>My Basket </p>
-                <span id="totaItems"></span>
-              </div>
-        </div>
-        </div>
-      </div>
-      <div id="homepageFilter">
-      <div class="dropdown">
-        <button class="dropbtn">SHOP BY CATEGORY</button>
-        <div class="dropdown-content">
-          <a href="eggMeatFish.html">Fruits & Vegetables</a>
-          <a href="ayurveda.html">Foodgrains, Oil & Masala</a>
-          <a href="buyMoreSaveMore.html">Bakery, Cakes & Dairy</a>
-          <a href="dealsofTheWeek.html">Baverages</a>
-          <a href="comboStore.html">Snacks & Branded Foods</a>
-          <a href="ayurveda.html">Beauty & Hygiene</a>
-          <a href="eggMeatFish.html">Cleaning & Household</a>
-          <a href="buyMoreSaveMore.html">Kitchen, Garden & Pets</a>
-          <a href="dealsofTheWeek.html">Eggs, Meat & Fish</a>
-          <a href="comboStore.html">Gourmet & World Food</a>
-          <a href="eggMeatFish.html">Baby Care</a>
-        </div>
-      </div>
-      <div><a href="dealsofTheWeek.html">OFFERS</a></div>
-      </div>
+      <div id="homePageAddresBar">
+        <p>
+           <img src="data:image/png;base64,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"
+            ><span id="helpLineNum">1860 123 1000</span>
+        </p>
 
+        <p>
+           <span id="currentLocationLogo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyeRKuT1Dx5i2BHXApLE2W_JwPK9dXLzzBPA&usqp=CAU">
+           </span>
+           <span id="">Karunamoyee Housing Estate, Karunamoyee Salt Lake, Kolkata </span>
+        </p>
+        
+        <p>
+            <a href="#">Login/Sign Up</a>
+        </p>
+   </div>
+     <!-- end of homepage addresbar -->
+     
+     <!-- start of bbLogoAndSearchbar  -->
+    <div id="bbLogoAndSearchbar">
+       <img src="https://www.bbassets.com/static/staticContent/bb_logo.png" alt="bigbasketLogo">
+       <input type="text" placeholder="Search for Products..."></input>
 
+       <div id="cartBasket" class="tooltip">  
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUjJrw_2Rg7W6EGZI2BB4VaT750Ch40aoiBA&usqp=CAU"
+         alt="basketImage">
+         <div id="basketItems" >
+             <p>My Basket </p>
+             <span id="totaItems"></span>
+             <!-- <span class="tooltiptext">Your basket is empty. Start shopping now.</span> -->
+         </div>
+       </div>
+    </div>
+    <!-- end of bbLogoAndSearchbar -->
+
+    <!-- start of shop by category dropdown -->
+    <div id="homepageDropdown">
+       <div class="dropdown">
+           <button class="dropbtn">SHOP BY CATEGORY</button>
+           <div class="dropdown-content">
+               <a href="eggMeatFish.html">Fruits & Vegetables</a>
+               <a href="ayurveda.html">Foodgrains, Oil & Masala</a>
+               <a href="buyMoreSaveMore.html">Bakery, Cakes & Dairy</a>
+               <a href="dealsofTheWeek.html">Baverages</a>
+               <a href="comboStore.html">Snacks & Branded Foods</a>
+               <a href="ayurveda.html">Beauty & Hygiene</a>
+               <a href="eggMeatFish.html">Cleaning & Household</a>
+               <a href="buyMoreSaveMore.html">Kitchen, Garden & Pets</a>
+               <a href="dealsofTheWeek.html">Eggs, Meat & Fish</a>
+               <a href="comboStore.html">Gourmet & World Food</a>
+               <a href="eggMeatFish.html">Baby Care</a>
+           </div>
+         </div>
+         <div><a href="#">OFFERS</a></div>
+    </div>
     <div>
         <a href="index.html">Home</a>
     </div>
@@ -67,7 +80,7 @@
            <option value="htl">Price - High to Low</option>
         </select>
     </div>
-    <div id="mainDiv"></div>
+    <div id="mySmartBasketMainDiv"></div>
 </body>
 </html>
 <script src="ayurveda.js"></script>

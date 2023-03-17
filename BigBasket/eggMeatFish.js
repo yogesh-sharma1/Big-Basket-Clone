@@ -76,7 +76,7 @@ function eggMeatFishFun(eggMeatFishArr){
         let image=document.createElement("img")
         image.setAttribute("src",el.image_url)
         image.setAttribute("alt",el.name)
-        let desc=document.createElement("h5")
+        let desc=document.createElement("p")
         desc.textContent=el.name
 
         let priceDiv=document.createElement("div")
@@ -126,7 +126,7 @@ function eggMeatFishFun(eggMeatFishArr){
         priceDiv.append(price,strikedOffPrice)
         qDiv.append(minInput,dataInput,plusInput)
         div.append(image,desc,priceDiv,qDiv,button)
-        document.getElementById("mainDiv").append(div)
+        document.getElementById("mySmartBasketMainDiv").append(div)
     })
     
 }
@@ -134,10 +134,26 @@ function eggMeatFishFun(eggMeatFishArr){
 var cartArr=JSON.parse(localStorage.getItem("cart-list")) || []
 
 function addtoCart(product){
-  cartArr.push(product);
-  localStorage.setItem("cart-list",JSON.stringify(cartArr))
-  alert("Successfully added to the cart.")
+  
+  var pres=ifPresent(product.name,cartArr)
+if(pres==true){
+  alert("This product is already added!")
+}
+  else{
+    cartArr.push(product);
+    localStorage.setItem("cart-list",JSON.stringify(cartArr))
+    alert("Successfully added to the cart.")
+  }
+  
   document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
+}
+
+function ifPresent(nameKey, myArray){
+  for (let i=0; i < myArray.length; i++) {
+    if (myArray[i].name === nameKey) {
+        return true;
+    }
+}
 }
 
 document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"

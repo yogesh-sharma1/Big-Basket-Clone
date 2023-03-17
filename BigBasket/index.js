@@ -1,4 +1,4 @@
-var indexPageGroceryArr = [
+var mySmartBasket = [
   {
     image_url:
       "https://www.bigbasket.com/media/uploads/p/s/10000068_22-fresho-capsicum-green.jpg",
@@ -41,86 +41,101 @@ var indexPageGroceryArr = [
     },
     
 ]
-indexPageGroceryDispFun(indexPageGroceryArr);
 
-function indexPageGroceryDispFun(indexPageGroceryArr){
-    console.log("hi")
-    indexPageGroceryArr.map(function(el){
+displayMySmartBasket(mySmartBasket)
 
-        let div=document.createElement("div")
-        let image=document.createElement("img")
-        image.setAttribute("src",el.image_url)
-        image.setAttribute("alt",el.name)
-        let desc=document.createElement("h5")
-        desc.textContent=el.name
+function displayMySmartBasket(mySmartBasket){
+  mySmartBasket.map(function(el){
+      let div=document.createElement("div")
+      // let offerDiv=document.createElement("div")
+      let image=document.createElement("img")
+      image.setAttribute("src",el.image_url)
+      image.setAttribute("alt",el.name)
 
-        let priceDiv=document.createElement("div")
-        let price=document.createElement("p")
-        price.textContent=el.price
-        let strikedOffPrice=document.createElement("p")
-        strikedOffPrice.textContent=el.strikedoffprice
+      let desc=document.createElement("p")
+      desc.textContent=el.name
 
-        let qDiv=document.createElement("div")
-        qDiv.setAttribute("class","quantity buttons_added")
-        let minInput=document.createElement("input")
-        minInput.setAttribute("type","button")
-        minInput.setAttribute("value","-")
-        minInput.setAttribute("class","minus")
-        
-        let dataInput=document.createElement("input")
-        dataInput.setAttribute("type","number")
-        dataInput.setAttribute("step","1")
-        dataInput.setAttribute("min","1")
-        dataInput.setAttribute("name","quantity")
-        dataInput.setAttribute("value","1")
-        dataInput.setAttribute("title","Qty")
-        dataInput.setAttribute("class","input-text qty text")
-        dataInput.setAttribute("size","4")
-        dataInput.setAttribute("pattern","")
-        dataInput.setAttribute("inputmode","")
+      let priceDiv=document.createElement("div")
+      let price=document.createElement("p")
+      price.textContent=el.price
+      let strikedOffPrice=document.createElement("p")
+      strikedOffPrice.textContent=el.strikedoffprice
 
-              
+      let qDiv=document.createElement("div")
+      qDiv.setAttribute("class","quantity buttons_added")
+      let minInput=document.createElement("input")
+      minInput.setAttribute("type","button")
+      minInput.setAttribute("value","-")
+      minInput.setAttribute("class","minus")
+      
+      let dataInput=document.createElement("input")
+      dataInput.setAttribute("type","number")
+      dataInput.setAttribute("step","1")
+      dataInput.setAttribute("min","1")
+      dataInput.setAttribute("name","quantity")
+      dataInput.setAttribute("value","1")
+      dataInput.setAttribute("title","Qty")
+      dataInput.setAttribute("class","input-text qty text")
+      dataInput.setAttribute("size","4")
+      dataInput.setAttribute("pattern","")
+      dataInput.setAttribute("inputmode","")
 
-        let plusInput=document.createElement("input")
-        plusInput.setAttribute("type","button")
-        plusInput.setAttribute("value","+")
-        plusInput.setAttribute("class","plus")
-       
-        minInput.addEventListener("click",function(){
-          decreaseCount(event, this,el)
-        }) 
-        plusInput.addEventListener("click",function(){
-          increaseCount(event, this,el)
-        }) 
+            
+
+      let plusInput=document.createElement("input")
+      plusInput.setAttribute("type","button")
+      plusInput.setAttribute("value","+")
+      plusInput.setAttribute("class","plus")
+     
+      minInput.addEventListener("click",function(){
+        decreaseCount(event, this,el)
+      }) 
+      plusInput.addEventListener("click",function(){
+        increaseCount(event, this,el)
+      }) 
 
 
-        let button=document.createElement("button")
-        button.textContent="Add to Cart"
-        button.addEventListener("click", function(){
-          addtoCart(el)
-        })
+      let button=document.createElement("button")
+      button.textContent="Add to Cart"
+      button.addEventListener("click", function(){
+        addtoCart(el)
+      })
 
-        priceDiv.append(price,strikedOffPrice)
-        qDiv.append(minInput,dataInput,plusInput)
-        div.append(image,desc,priceDiv,qDiv,button)
-        document.getElementById("mainDiv").append(div)
-    })
-    
+      priceDiv.append(price,strikedOffPrice)
+      qDiv.append(minInput,dataInput,plusInput)
+      div.append(image,desc,priceDiv,qDiv,button)
+      document.getElementById("mySmartBasketMainDiv").append(div)
+  })
 }
+
 var cartArrIndexGrocery=JSON.parse(localStorage.getItem("cart-list")) || []
 
 function addtoCart(product){
-  console.log(product.quantity)
+  console.log(product.name)
+var pres=ifPresent(product.name,cartArrIndexGrocery)
+if(pres==true){
+  alert("This product is already added!")
+}
+else{
   cartArrIndexGrocery.push(product);
   localStorage.setItem("cart-list",JSON.stringify(cartArrIndexGrocery))
   alert("Successfully added to the cart.")
-  document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
+}
+
+document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
 }
 
 document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
 
+function ifPresent(nameKey, myArray){
+  for (let i=0; i < myArray.length; i++) {
+    if (myArray[i].name === nameKey) {
+        return true;
+    }
+}
+}
 
-// JS for quantity
+// count increase
 function increaseCount(a, b, elem) {
   var input = b.previousElementSibling;
   var value = parseInt(input.value, 10); 
@@ -130,6 +145,7 @@ function increaseCount(a, b, elem) {
   elem.quantity=value;
   
 }
+//   count decrease
 function decreaseCount(a, b,elem) {
   var input = b.nextElementSibling;
   var value = parseInt(input.value, 10); 

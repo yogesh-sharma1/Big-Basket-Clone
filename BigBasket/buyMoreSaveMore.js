@@ -158,7 +158,7 @@ function buyMoreSaveMoreFun(buyMoreSaveMore){
         priceDiv.append(price,strikedOffPrice)
         qDiv.append(minInput,dataInput,plusInput)
         div.append(image,desc,priceDiv,qDiv,button)
-        document.getElementById("mainDiv").append(div)
+        document.getElementById("mySmartBasketMainDiv").append(div)
     })
     
 }
@@ -166,12 +166,26 @@ function buyMoreSaveMoreFun(buyMoreSaveMore){
 var cartArr=JSON.parse(localStorage.getItem("cart-list")) || []
 
 function addtoCart(product){
+  var pres=ifPresent(product.name,cartArr)
+  if(pres==true){
+    alert("This product is already added!")
+  }else{
+
   cartArr.push(product);
   localStorage.setItem("cart-list",JSON.stringify(cartArr))
   alert("Successfully added to the cart.")
+  }
   document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
 }
 document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
+
+function ifPresent(nameKey, myArray){
+  for (let i=0; i < myArray.length; i++) {
+    if (myArray[i].name === nameKey) {
+        return true;
+    }
+}
+}
 
 function increaseCount(a, b, elem) {
   var input = b.previousElementSibling;

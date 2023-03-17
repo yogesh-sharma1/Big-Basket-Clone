@@ -173,7 +173,7 @@ function combosFun(combosArr){
         let image=document.createElement("img")
         image.setAttribute("src",el.image_url)
         image.setAttribute("alt",el.name)
-        let desc=document.createElement("h5")
+        let desc=document.createElement("p")
         desc.textContent=el.name
 
         let priceDiv=document.createElement("div")
@@ -223,7 +223,7 @@ function combosFun(combosArr){
         priceDiv.append(price,strikedOffPrice)
         qDiv.append(minInput,dataInput,plusInput)
         div.append(image,desc,priceDiv,qDiv,button)
-        document.getElementById("mainDiv").append(div)
+        document.getElementById("mySmartBasketMainDiv").append(div)
     })
     
 }
@@ -231,12 +231,27 @@ function combosFun(combosArr){
 var combosCart=JSON.parse(localStorage.getItem("cart-list")) || []
 
 function addtoCart(product){
+  var pres=ifPresent(product.name,combosCart)
+  if(pres==true){
+    alert("This product is already added!")
+  }else{
+
     combosCart.push(product);
   localStorage.setItem("cart-list",JSON.stringify(combosCart))
   alert("Successfully added to the cart.")
+  }
   document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
 }
 document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
+
+
+function ifPresent(nameKey, myArray){
+  for (let i=0; i < myArray.length; i++) {
+    if (myArray[i].name === nameKey) {
+        return true;
+    }
+}
+}
 
 function increaseCount(a, b, elem) {
   var input = b.previousElementSibling;
