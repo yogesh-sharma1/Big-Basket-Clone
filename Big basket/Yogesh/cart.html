@@ -29,7 +29,7 @@
                 <h3>Try Fresh Groceries Today!</h3>
             </div>
             <div>
-                <button><a href="#">Add Items</a></button>
+                <button><a href="../../BigBasket/index.html">Add Items</a></button>
             </div>
         </div>
         <div id="parent">
@@ -55,7 +55,7 @@
                     <h1>Your Basket (<span id="span-items">4 items</span>)</h1>
                     <div style="display: flex; justify-content: space-around;">
                         <button onclick="clearCart()">Empty Cart</button>
-                        <button><a href="#">Add Items</a></button>
+                        <button><a href="../../BigBasket/index.html">Add Items</a></button>
                     </div>
                 </div>
             </div>
@@ -79,36 +79,7 @@
 </body>
 </html>
 <script>
-    var cartItems = [
-        {
-            imageUrl : 'https://www.bigbasket.com/media/uploads/p/xxl/10000148_30-fresho-onion.jpg',
-            price : 50,
-            quantity : 0,
-            name : 'Fresho Onion 1kg',
-            brand : 'Fresho'
-        },
-        {
-            imageUrl : 'https://www.bigbasket.com/media/uploads/p/xxl/10000148_30-fresho-onion.jpg',
-            price : 500,
-            quantity : 0,
-            name : 'Freso Mango 1kg',
-            brand : 'Fresho'
-        },
-        {
-            imageUrl : 'https://www.bigbasket.com/media/uploads/p/xxl/10000148_30-fresho-onion.jpg',
-            price : 150,
-            quantity : 0,
-            name : 'Natural Fresh Kiwi 500g',
-            brand : 'BBGo'
-        },
-        {
-            imageUrl : 'https://www.bigbasket.com/media/uploads/p/xxl/10000148_30-fresho-onion.jpg',
-            price : 100,
-            quantity : 0,
-            name : 'Aashirwad New Chakki Aata 5kg',
-            brand : 'Aashirwad'
-        }
-    ]
+    var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     
     var totalItems = document.getElementById('span-items');
     totalItems.textContent = cartItems.length + " items";
@@ -138,7 +109,7 @@
         leftdiv.setAttribute('id','leftdiv');
         
         var img = document.createElement('img');
-        img.setAttribute('src',elem.imageUrl);
+        img.setAttribute('src',elem.image_url);
         
         var infoDiv = document.createElement('div');
         var brand = document.createElement('p');

@@ -1,4 +1,8 @@
 /* <!-- start of homepage addresbar --> */
+b{
+  padding: 0px;
+  margin: 0px;
+}
 #staticHeader{
   position: sticky;
   top:0;
@@ -8,13 +12,13 @@
 #homePageAddresBar{
   display:flex;
   justify-content: right;
-  width:90%;
-  margin-left: auto;
-  margin-right: auto;
+  /* width:90%; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
   align-items: first baseline;
-  gap: 25px;
-  margin-top: -15px;
-  font-size: 13px;
+  gap: 20px;
+  /* margin-top: -15px; */
+  font-size: 15px;
   color: #666;
 }
 #homePageAddresBar img{
@@ -42,20 +46,21 @@
 
 #bbLogoAndSearchbar>input[type=text]{
   width:50%;
-  height:8px;
+  height:18px;
   padding: 10px;
   margin-top: 10px;
   border:1px solid #84c225
 }
 #cartBasket{
-  display:flex
-
+  display:flex;
+  padding: 3px;
+  align-items: center;
+  text-align: center;
+  background-color: whitesmoke;
 }
-#cartBasket>img{
-  width: 58px;
-  height: 45px;
-  margin-left:15px;
-  margin-top:5px;
+#cartBasket img{
+  width: 60px;
+  height: 60px;
   cursor: pointer;
 }
 #basketItems{

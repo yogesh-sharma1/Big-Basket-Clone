@@ -2,8 +2,9 @@ var mySmartBasket = [
   {
     image_url:
       "https://www.bigbasket.com/media/uploads/p/s/10000068_22-fresho-capsicum-green.jpg",
-      name: "Fresho Capsicum - Green, 250 g",
+    name: "Fresho Capsicum - Green, 250 g",
     price: 17,
+    brand: "FRESHO",
     strikedoffprice: 30.26,
     quantity:1
   },
@@ -12,14 +13,16 @@ var mySmartBasket = [
       "https://www.bigbasket.com/media/uploads/p/s/10000072_16-fresho-carrot-orange.jpg",
       name: "Fresho Carrot - Orange, 500 g",
     price: 15,
+    brand: "FRESHO",
     strikedoffprice: 27.63,
     quantity:1
   },
   {
     image_url:
       "https://www.bigbasket.com/media/uploads/p/s/10000097_19-fresho-coriander-leaves.jpg",
-      name: "Fresho Coriander Leaves, 100 g",
+    name: "Fresho Coriander Leaves, 100 g",
     price: 10,
+    brand: "FRESHO",
     strikedoffprice: 21.05,
     quantity:1
   },
@@ -28,17 +31,19 @@ var mySmartBasket = [
     "https://www.bigbasket.com/media/uploads/p/s/10000118_18-fresho-ginger.jpg",
     name:"Fresho Fresh Ginger / Aada, 250 g",
     price: 32,
+    brand: "FRESHO",
     strikedoffprice: 76.32,
     quantity:1
   },
   {
-      image_url:
-        "https://www.bigbasket.com/media/uploads/p/s/10000148_30-fresho-onion.jpg",
-        name: "Fresho Onion, 1 kg",
-      price: 24,
-      strikedoffprice: 31.58,
-      quantity:1
-    },
+    image_url:
+      "https://www.bigbasket.com/media/uploads/p/s/10000148_30-fresho-onion.jpg",
+      name: "Fresho Onion, 1 kg",
+    price: 24,
+    brand: "FRESHO",
+    strikedoffprice: 31.58,
+    quantity:1
+  },
     
 ]
 
@@ -91,7 +96,7 @@ function displayMySmartBasket(mySmartBasket){
       minInput.addEventListener("click",function(){
         decreaseCount(event, this,el)
       }) 
-      plusInput.addEventListener("click",function(){
+      plusInput.addEventListener("click",function(event){
         increaseCount(event, this,el)
       }) 
 
@@ -109,31 +114,30 @@ function displayMySmartBasket(mySmartBasket){
   })
 }
 
-var cartArrIndexGrocery=JSON.parse(localStorage.getItem("cart-list")) || []
+var cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
 
 function addtoCart(product){
   console.log(product.name)
-var pres=ifPresent(product.name,cartArrIndexGrocery)
-if(pres==true){
-  alert("This product is already added!")
-}
-else{
-  cartArrIndexGrocery.push(product);
-  localStorage.setItem("cart-list",JSON.stringify(cartArrIndexGrocery))
-  alert("Successfully added to the cart.")
+  var pres=ifPresent(product.name,cartItems)
+  if(pres==true){
+    alert("This product is already added!")
+  }
+  else{
+    cartItems.push(product);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }
+
+  document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cartItems")).length+ " items"
 }
 
-document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
-}
-
-document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
+document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cartItems")).length+ " items"
 
 function ifPresent(nameKey, myArray){
   for (let i=0; i < myArray.length; i++) {
     if (myArray[i].name === nameKey) {
         return true;
     }
-}
+  }
 }
 
 // count increase
@@ -141,18 +145,18 @@ function increaseCount(a, b, elem) {
   var input = b.previousElementSibling;
   var value = parseInt(input.value, 10); 
   value = isNaN(value)? 0 : value;
-  value ++;
+  value++;
   input.value = value;
   elem.quantity=value;
   
 }
 //   count decrease
-function decreaseCount(a, b,elem) {
+function decreaseCount(b,elem) {
   var input = b.nextElementSibling;
   var value = parseInt(input.value, 10); 
   if (value > 1) {
     value = isNaN(value)? 0 : value;
-    value --;
+    value--;
     input.value = value;
     elem.quantity=value;
   }
