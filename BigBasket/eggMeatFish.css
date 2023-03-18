@@ -6,7 +6,11 @@
     margin-right: auto;
     justify-content: space-between;
     align-items: center;
+    
 }
+/* #headerAndFilter>div{
+  
+} */
 #headerAndFilter>h2{
     font-size: 30px;
     font-weight: 600;
@@ -20,13 +24,13 @@
     position: sticky;
     top:0;
     background: white;
-    
+    z-index: 100;
 }
 
 
 #filterByPrice{
     
-    
+       
         position: relative;
         display: block;
         width: 15em;

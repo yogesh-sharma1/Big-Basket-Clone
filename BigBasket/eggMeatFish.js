@@ -69,6 +69,7 @@ var eggMeatFish = [
       eggMeatFishFun(eggMeatFish);
 
 function eggMeatFishFun(eggMeatFishArr){
+  document.getElementById("mySmartBasketMainDiv").textContent=""
     console.log("hi")
     eggMeatFish.map(function(el){
 
@@ -162,26 +163,27 @@ document.getElementById("filterByPrice").addEventListener("change",sortByPriceFu
 
 function sortByPriceFun(){
   console.log("hi")
-    console.log(eggMeatFish)
+   
     let filterByPriceVal=document.getElementById("filterByPrice").value
-    
+        var arr=[]
     
         console.log(filterByPriceVal)
          if(filterByPriceVal===""){
             return 1
          }
          if(filterByPriceVal=="lth"){
-            eggMeatFish=eggMeatFish.sort(function(a,b){
+            var arr=eggMeatFish.sort(function(a,b){
                  return a.price-b.price
             })
          }
          if(filterByPriceVal=="htl"){
-            eggMeatFish=eggMeatFish.sort(function(a,b){
+            var arr=eggMeatFish.sort(function(a,b){
                 return b.price-a.price
            })
          }
          console.log(eggMeatFish)
-         eggMeatFishFun(eggMeatFish)
+
+         eggMeatFishFun(arr)
 }
 
 function increaseCount(a, b, elem) {
@@ -203,3 +205,7 @@ function decreaseCount(a, b,elem) {
     elem.quantity=value;
   }
 }
+
+
+
+
