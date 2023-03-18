@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="header">
+        <div class="links">
+            <div id="link1">
+                <a href="">Home</a> 
+                <a href="">About Us</a>
+                <a href="">Add Address</a>
+            </div>
+        </div>
+    </div>
+    <div id="cart">
+        <div id="empty-cart">
+            <h1>OOPs... Empty! <i class="fa fa-ship" style="font-size:28px;"></i></h1>
+            <div>
+                <i class="fa fa-shopping-cart" style="font-size:120px; color: green;"></i>
+            </div>
+            <div style="margin: 40px auto;">
+                <h2>Your cart appears to be empty!</h2>
+                <h3>Try Fresh Groceries Today!</h3>
+            </div>
+            <div>
+                <button><a href="#">Add Items</a></button>
+            </div>
+        </div>
+        <div id="parent">
+            <div id="t-head">
+                <div>
+                    <h2>Item Description</h2>
+                </div>
+                <div>
+                    <div id="t-head2">
+                        <h2>Quantity</h2>
+                    </div>
+                    <div>
+                        <h2>Cost / Savings</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Added via Javascript -->
+        </div>
+        <div id="parent-2">
+            <div id="add-remove">
+                <div>
+                    <h1>Your Basket (<span id="span-items">4 items</span>)</h1>
+                    <div style="display: flex; justify-content: space-around;">
+                        <button onclick="clearCart()">Empty Cart</button>
+                        <button><a href="#">Add Items</a></button>
+                    </div>
+                </div>
+            </div>
+            <div id="cart-total">
+                <div>
+                    <h1>Order Summary</h1>
+                    <hr style="width: 90%;">
+                    <div>
+                        <span style="font-size: 18px; color:rgb(122, 122, 123)">!Promo Code Available!<i class="fa fa-tag"></i></span>
+                        <input id="promo-code" type="text" placeholder=" Enter Coupon Code!!">
+                        <button id="apply-promo">Apply</button>
+                        <div>
+                            <p id="code">No Promo Code Applied!</p>
+                        </div>
+                    </div>
+                    <hr style="width: 90%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var cartItems = [
+        {
+            imageUrl : 'https://www.bigbasket.com/media/uploads/p/xxl/10000148_30-fresho-onion.jpg',
+            price : 50,
+            quantity : 0,
+            name : 'Fresho Onion 1kg',
+            brand : 'Fresho'
+        },
+        {
+            imageUrl : 'https://www.bigbasket.com/media/uploads/p/xxl/10000148_30-fresho-onion.jpg',
+            price : 500,
+            quantity : 0,
+            name : 'Freso Mango 1kg',
+            brand : 'Fresho'
+        },
+        {
+            imageUrl : 'https://www.bigbasket.com/media/uploads/p/xxl/10000148_30-fresho-onion.jpg',
+            price : 150,
+            quantity : 0,
+            name : 'Natural Fresh Kiwi 500g',
+            brand : 'BBGo'
+        },
+        {
+            imageUrl : 'https://www.bigbasket.com/media/uploads/p/xxl/10000148_30-fresho-onion.jpg',
+            price : 100,
+            quantity : 0,
+            name : 'Aashirwad New Chakki Aata 5kg',
+            brand : 'Aashirwad'
+        }
+    ]
+    
+    var totalItems = document.getElementById('span-items');
+    totalItems.textContent = cartItems.length + " items";
+
+    var cartDiv = document.getElementById('parent');
+    var cartTotal = localStorage.getItem('cartTotal') || 0;
+
+    var emptyCart = document.getElementById('empty-cart');
+    var emptyImage = document.createElement('img');
+
+    if(cartItems.length > 0){
+        emptyCart.style.display = "none";
+        document.getElementById('parent').style.display="initial";
+        document.getElementById('parent-2').style.display="initial";
+    }
+    else{
+        document.querySelector("#cart").setAttribute("style", " align-items:center; height: 80vh;background-image: url('https://img.freepik.com/free-vector/geometric-frame-background-green-modern-design-vector_53876-157567.jpg?size=626&ext=jpg&ga=GA1.2.232835331.1679132289&semt=ais'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;")
+        document.getElementById('parent').style.display="none";
+        document.getElementById('parent-2').style.display="none";
+    }
+    
+
+    cartItems.map((elem)=>{
+        var div = document.createElement('div');
+        
+        var leftdiv = document.createElement('div');
+        leftdiv.setAttribute('id','leftdiv');
+        
+        var img = document.createElement('img');
+        img.setAttribute('src',elem.imageUrl);
+        
+        var infoDiv = document.createElement('div');
+        var brand = document.createElement('p');
+        brand.textContent = elem.brand;
+        brand.style.fontSize = "18px"
+        brand.style.color = "rgb(170, 170, 170)"
+        var name = document.createElement('p');
+        name.textContent = elem.name;
+        var price = document.createElement('p');
+        price.textContent = "Rs." + elem.price;
+        price.style.fontSize = "18px"
+        price.style.color = "rgb(170, 170, 170)"
+
+        infoDiv.append(name, brand, price);
+        leftdiv.append(img, infoDiv);
+        
+        var rightdiv = document.createElement('div');
+        rightdiv.setAttribute('id','rightdiv');
+        
+        var quantityDiv = document.createElement('div');
+        var btn1  = document.createElement('button');
+        btn1.textContent = " - "
+        var quantity = document.createElement('span');
+        quantity.textContent = elem.quantity
+        var btn2  = document.createElement('button');
+        btn2.textContent = " + ";
+        
+        quantityDiv.append(btn1, quantity, btn2);
+        
+        btn1.addEventListener('click', function(){
+            decQuantity(elem,itemPrice,subTotal,quantity);
+        });
+        btn2.addEventListener('click', function(){
+            incQuantity(elem,itemPrice,subTotal,quantity);
+        });
+
+        var costDiv = document.createElement('div');
+        
+        var subTotal = document.createElement('p');
+        subTotal.textContent = "Cost - Rs." + (elem.price * elem.quantity);
+        var itemPrice = document.createElement('p');
+        itemPrice.textContent = "Saved - Rs." + (elem.price * elem.quantity) * 25/100;
+        itemPrice.style.fontSize = "16px"
+        itemPrice.style.color = "green"
+        
+        
+        costDiv.append(subTotal, itemPrice);
+        rightdiv.append(quantityDiv, costDiv);
+        
+        div.append(leftdiv, rightdiv);
+        cartDiv.append(div);
+    })
+
+    var totalDiv = document.createElement('div');
+    totalDiv.setAttribute('class','cart-2')
+    var totalheading = document.createElement('p');
+    totalheading.textContent = "Total Cart Value";
+    var total = document.createElement('p');
+    total.textContent = "Rs." + cartTotal;
+    var tax = document.createElement('p');
+    tax.textContent = "Total Tax";
+    var totalTax = document.createElement("p");
+    totalTax.textContent = "Rs." + cartTotal * (12/100);
+    var deliveryCharges = document.createElement('p');
+    deliveryCharges.textContent = `Delivery Charges`;
+    var totalDelCharge = document.createElement("p");
+    totalDelCharge.textContent = `Rs. ${cartTotal>=500 ? 0 : 40}`;
+    var saved = document.createElement('p');
+    saved.textContent = `Savings`;
+    var totalsaved = document.createElement("p");
+    totalsaved.textContent = `Rs. 0`;
+
+    var hr=document.createElement("hr");
+    hr.style.width = "90%"
+    
+    var tcv = document.createElement("div");
+    tcv.setAttribute("class","tcv");
+    tcv.setAttribute("id","tsc");
+    tcv.append(totalheading,total);
+    var tt = document.createElement("div");
+    tt.setAttribute("class","tcv");
+    tt.append(tax,totalTax);
+    var dc = document.createElement("div");
+    dc.setAttribute("class","tcv");
+    dc.append(deliveryCharges,totalDelCharge);
+    var ts = document.createElement("div");
+    ts.setAttribute("class","tcv");
+    ts.append(saved,totalsaved);
+    
+    totalDiv.append(tcv,tt,dc,ts);
+    
+
+    var payingTotal = document.createElement('h2');
+    payingTotal.textContent = "Sub Total : Rs. " + (parseInt(cartTotal) + cartTotal * (12/100));
+    
+    var checkoutBtn = document.createElement('button');
+    checkoutBtn.innerHTML = "<a href='\payment.html'>Checkout Now</a>";
+    checkoutBtn.setAttribute('id','checkbtn');    
+
+    document.getElementById('cart-total').append(totalDiv,hr,payingTotal,checkoutBtn);
+
+    var applyPromo = document.getElementById('apply-promo');
+    applyPromo.addEventListener('click', promoCodeFun);
+
+    var offers = ["BASKET200","FIRST","SHOP5"];
+    function promoCodeFun(){
+        var promoCode = document.getElementById('promo-code').value;
+        console.log(promoCode)
+        if(offers.includes(promoCode)){
+            document.getElementById('code').textContent = "Hurray! You get 30% discount.";
+            payingTotal.textContent = "Sub Total : Rs. " + (parseInt(cartTotal) + cartTotal * (12/100) - cartTotal*(30/100));
+            document.getElementById('code').style.color = "green"
+        }
+        else{
+            document.getElementById('code').textContent = "Not a valid Promo Code";
+            document.getElementById('code').style.color = "red"
+        } 
+    }
+
+    function decQuantity(item, itemPrice, subTotal, qnt){
+        if(item.quantity > 0){
+            item.quantity--;
+            qnt.textContent = item.quantity;
+            subTotal.textContent = "Cost - Rs." + (item.price * item.quantity);
+            itemPrice.textContent = "Saved - Rs." + (item.price * item.quantity) * 25/100;
+            cartTotal -= item.price;
+            total.textContent = "$ " + cartTotal;
+            totalTax.textContent = "Rs." + cartTotal * (12/100);
+            totalDelCharge.textContent = `Rs. ${cartTotal>=500 ? 0 : 40}`;
+            payingTotal.textContent = "Sub Total : Rs. " + (parseInt(cartTotal) + cartTotal * (12/100));
+            localStorage.setItem('cartItems',JSON.stringify(cartItems));
+            localStorage.setItem('cartTotal',cartTotal);
+            console.log(cartTotal);
+
+            if(cartTotal>=5000){
+                payingTotal.textContent = "Sub Total : Rs. " + (parseInt(cartTotal) + cartTotal * (12/100) - cartTotal*(30/100));
+            }
+            if(cartTotal>=10000){
+                payingTotal.textContent = "Sub Total : Rs. " + (parseInt(cartTotal) + cartTotal * (12/100) - cartTotal*(40/100));
+            }
+        }
+    }
+    let countAlert = 0;
+    function incQuantity(item, itemPrice, subTotal, qnt){
+        item.quantity++;
+        qnt.textContent = item.quantity;
+        subTotal.textContent = "Cost - Rs." + (item.price * item.quantity);
+        itemPrice.textContent = "Saved - Rs." + (item.price * item.quantity) * 25/100;
+        cartTotal = parseInt(cartTotal) + item.price;
+        total.textContent = "$ " + cartTotal;
+        totalDelCharge.textContent = `Rs. ${cartTotal>=500 ? 0 : 40}`;
+        payingTotal.textContent = "Sub Total : Rs. " + (parseInt(cartTotal) + cartTotal * (12/100));
+        totalTax.textContent = "Rs." + cartTotal * (12/100);
+        localStorage.setItem('cartTotal',cartTotal);
+        localStorage.setItem('cartItems',JSON.stringify(cartItems));
+        console.log(item);
+        if(cartTotal>=5000){
+            payingTotal.textContent = "Sub Total : Rs. " + (parseInt(cartTotal) + cartTotal * (12/100) - cartTotal*(30/100));
+        }
+        if(cartTotal>=10000){
+            payingTotal.textContent = "Sub Total : Rs. " + (parseInt(cartTotal) + cartTotal * (12/100) - cartTotal*(40/100));
+        }
+        if(cartTotal >= 3500 && cartTotal < 5000 && countAlert == 0){
+            countAlert++;
+            alert(`Shop a total of R.5000 and get assured 30% Discount...`);
+        }
+        else if(cartTotal >= 7500 && cartTotal < 10000 && countAlert == 1){
+            countAlert++;
+            alert(`Shop a total of R.10000 and more and get assured 40% Discount...`);
+            payingTotal.textContent = "Sub Total : Rs. " + (parseInt(cartTotal) + cartTotal * (12/100) - cartTotal*(40/100));
+        }
+    }
+
+    function clearCart(){
+        cartItems = [];
+        localStorage.setItem("cartItems",JSON.stringify(cartItems));
+        localStorage.setItem("cartTotal",0);
+        emptyCart.style.display = "initial";
+        document.querySelector("#cart").setAttribute("style", " align-items:center; height: 80vh;background-image: url('https://img.freepik.com/free-vector/geometric-frame-background-green-modern-design-vector_53876-157567.jpg?size=626&ext=jpg&ga=GA1.2.232835331.1679132289&semt=ais'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;")
+        document.getElementById('parent').style.display="none";
+        document.getElementById('parent-2').style.display="none";      
+    }
+
+</script>
