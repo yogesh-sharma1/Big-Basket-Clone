@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sign In</title>
+  
+</head>
+<style> /* ... existing styles ... */
+
+  /* Center the modal on the screen */
+  * {
+      padding: 0;
+      margin: 0;
+      font-family: arial;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: transparent;
+    }
+
+    #signInModal {
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    /* Style the modal content */
+    .modal-content {
+      position: center;
+      align-items: center;
+      width: 40%;
+      max-width: 80%;
+      height: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      z-index: 10;
+    }
+
+    #div {
+      background: #ffffff;
+
+    }
+
+    /* Add some spacing around the form elements */
+    form {
+      margin: 40px 40px 40px 40px;
+    }
+
+    input {
+      width: 100%;
+      border: 2px solid #4285f4;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding: 15px 0px 10px 20px;
+    }
+
+    input::placeholder {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 21px;
+      margin: left 20px;
+      color: grey;
+    }
+
+    p{
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 30px;
+      margin: 5px 5px 5px 5px;
+    }
+    p1{
+      margin:10px 5px 0px 0px;
+      text-align: center;
+    }
+    /* Add some spacing around the form elements */
+    form {
+      margin: 40px 40px 40px 40px;
+    }
+
+    form label {
+      margin-bottom: 30px;
+    }
+
+    /* Style the sign up button */
+    #signUpButton {
+      background-color: #fc427b;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #signUpButton:hover {
+      background-color: #ff6b81;
+    }
+
+    #signIn {
+      margin: 20px 0px;
+      padding: 20px;
+      font-weight: bold;
+      font-size: 15px;
+      border-radius: 5px;
+      color: white;
+      width: 100%;
+      background-color: rgb(24, 148, 24);
+    }
+
+    /* Style the close button */
+    .close {
+      position: sticky;
+      top: 0;
+      right: 100%;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: red;
+      padding: 5px;
+    }
+
+    .close:hover {
+      background: #84c225;
+    }
+
+    #dsu {
+      text-align: right;
+      line-height: 30px;
+    }
+    #Tac
+    {
+      background-color: #fff;
+      border: none;
+      font-size: 15px;
+      color: #84c225;
+    }
+    #pp
+    {
+      background-color: #fff;
+      border: none;
+      font-size: 15px;
+      color: #84c225;
+    }</style>
+
+<body>
+  <!-- ... existing HTML ... -->
+
+  <div id="signInModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h1 style="color: #84c225;
+        font-size: 30px;
+        text-align: center;
+        line-height: 19px;
+        font-weight: 600;">Sign In/Sign Up</h1>
+      <form>
+        <p>Enter your Phone number or email address</p>
+        <input type="text" placeholder="Email address Or Phone number" name="emailOrPhone">
+        <br>
+        <p>Enter your Password</p>
+        <input type="password" placeholder="Enter Password" name="password">
+        <br>
+        <button type="submit" id="signIn">Continue</button>
+      </form>
+      <br>
+      <p id="dsu">Don't have an account? <button id="signUpButton" onclick="location.href='signup.html';">SignUp</button></p>
+      <p1 id="dsu">By continuing, I accept TCP-bigbasket’s <button id="Tac" onclick="location.href='signup.html';">Terms and Conditions</button> and <button id="pp" onclick="location.href='signup.html';">Privacy Policy.</button></p1>
+
+    </div>
+  </div>
+
+
+  <script src="scripts/signin.js">
+  </script>
+</body>
+
+</html>
