@@ -51,6 +51,7 @@ function displayMySmartBasket(mySmartBasket){
       let image=document.createElement("img")
       image.setAttribute("src",el.image_url)
       image.setAttribute("alt",el.name)
+    
 
       let desc=document.createElement("p")
       desc.textContent=el.name

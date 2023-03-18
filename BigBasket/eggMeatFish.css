@@ -267,6 +267,15 @@ margin-top: 10px;
   border-radius: 20px;
   margin-bottom: 20px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  cursor: pointer;
+}
+
+#mySmartBasketMainDiv > div:hover{
+  outline: .2rem solid #222;
+  outline-offset: 0;
+}
+#mySmartBasketMainDiv > div:hover img{
+  transform:scale(.9)
 }
 #mySmartBasketMainDiv > div > div{
   display:flex;
@@ -286,14 +295,23 @@ margin-top: 10px;
   height:200px;
 }
 #mySmartBasketMainDiv>div>img+p{
-  text-align: center;
+  /* text-align: center;
   color: #4d4d4d;
   font:13px;
-  margin-bottom: 25px;
+  margin-bottom: 25px; */
+  text-align: center;
+  padding:1rem 0;
+  font-size:13px;
+  color:#444;
+}
+#mySmartBasketMainDiv>div>img+p:hover{
+  color:#27ae60
 }
 #mySmartBasketMainDiv>div>img+p+div{
  display:flex;
  justify-content: space-around;
+ font-size:15px;
+  color:#444;
 }
 #mySmartBasketMainDiv>div>img+p+div>p+p{
   text-decoration: line-through;
