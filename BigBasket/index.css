@@ -227,7 +227,7 @@ margin-top: 10px;
 }
 
 #mySmartBasketMainDiv > div:hover{
-  outline: .2rem solid #222;
+  outline: .2rem solid rgb(235, 224, 224);
   outline-offset: 0;
 }
 #mySmartBasketMainDiv > div:hover img{
