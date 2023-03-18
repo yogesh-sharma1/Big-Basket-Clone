@@ -70,7 +70,7 @@ var eggMeatFish = [
 
 function eggMeatFishFun(eggMeatFishArr){
   document.getElementById("mySmartBasketMainDiv").textContent=""
-    console.log("hi")
+  
     eggMeatFish.map(function(el){
 
         let div=document.createElement("div")
@@ -162,13 +162,13 @@ document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem
 document.getElementById("filterByPrice").addEventListener("change",sortByPriceFun)
 
 function sortByPriceFun(){
-  console.log("hi")
+  
    
     let filterByPriceVal=document.getElementById("filterByPrice").value
         var arr=[]
     
         console.log(filterByPriceVal)
-         if(filterByPriceVal===""){
+         if(filterByPriceVal==""){
             return 1
          }
          if(filterByPriceVal=="lth"){

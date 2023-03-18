@@ -101,14 +101,14 @@ document.getElementById("totalProductCountBMSM").textContent=buyMoreSaveMore.len
       buyMoreSaveMoreFun(buyMoreSaveMore);
 
 function buyMoreSaveMoreFun(buyMoreSaveMore){
-    console.log("hi")
+  document.getElementById("mySmartBasketMainDiv").textContent=""
     buyMoreSaveMore.map(function(el){
 
         let div=document.createElement("div")
         let image=document.createElement("img")
         image.setAttribute("src",el.image_url)
         image.setAttribute("alt",el.name)
-        let desc=document.createElement("h5")
+        let desc=document.createElement("p")
         desc.textContent=el.name
 
         let priceDiv=document.createElement("div")
@@ -186,6 +186,38 @@ function ifPresent(nameKey, myArray){
     }
 }
 }
+
+
+
+document.getElementById("filterByPrice").addEventListener("change",sortByPriceFun)
+
+function sortByPriceFun(){
+  
+   
+    let filterByPriceVal=document.getElementById("filterByPrice").value
+        var arr=[]
+    
+        console.log(filterByPriceVal)
+         if(filterByPriceVal==""){
+            return 1
+         }
+         if(filterByPriceVal=="lth"){
+            var arr=buyMoreSaveMore.sort(function(a,b){
+                 return a.price-b.price
+            })
+         }
+         if(filterByPriceVal=="htl"){
+            var arr=buyMoreSaveMore.sort(function(a,b){
+                return b.price-a.price
+           })
+         }
+         console.log(eggMeatFish)
+
+         buyMoreSaveMoreFun(arr)
+}
+
+
+
 
 function increaseCount(a, b, elem) {
   var input = b.previousElementSibling;

@@ -166,7 +166,7 @@ var combosArr = [
 document.getElementById("totalProductCountCombos").textContent=combosArr.length
 combosFun(combosArr);
 function combosFun(combosArr){
-    
+  document.getElementById("mySmartBasketMainDiv").textContent=""
     combosArr.map(function(el){
 
         let div=document.createElement("div")
@@ -252,6 +252,36 @@ function ifPresent(nameKey, myArray){
     }
 }
 }
+
+
+document.getElementById("filterByPrice").addEventListener("change",sortByPriceFun1)
+console.log("hello after")
+function sortByPriceFun1(){
+
+  console.log("hiasdf")
+   
+    let filterByPriceVal1=document.getElementById("filterByPrice").value
+        var arr1=[]
+    
+        console.log(filterByPriceVal1)
+         if(filterByPriceVal1==""){
+            return 1
+         }
+         if(filterByPriceVal1=="lth"){
+            var arr1=combosArr.sort(function(a,b){
+                 return a.price-b.price
+            })
+         }
+         if(filterByPriceVal1=="htl"){
+            var arr1=combosArr.sort(function(a,b){
+                return b.price-a.price
+           })
+         }
+        console.log(arr1)
+
+        combosFun(arr1)
+}
+
 
 function increaseCount(a, b, elem) {
   var input = b.previousElementSibling;

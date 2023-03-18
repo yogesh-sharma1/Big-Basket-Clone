@@ -118,7 +118,7 @@ var dealsofTheWeekArr = [
 document.getElementById("totalProductCountDOW").textContent=dealsofTheWeekArr.length
 dealsOfTheWeekFun(dealsofTheWeekArr);
 function dealsOfTheWeekFun(dealsofTheWeekArr){
-    
+  document.getElementById("mySmartBasketMainDiv").textContent=""
     dealsofTheWeekArr.map(function(el){
 
         let div=document.createElement("div")
@@ -205,6 +205,40 @@ function ifPresent(nameKey, myArray){
     }
 }
 }
+
+
+console.log("hello")
+document.getElementById("filterByPrice").addEventListener("change",sortByPriceFun1)
+console.log("hello after")
+function sortByPriceFun1(){
+
+  console.log("hiasdf")
+   
+    let filterByPriceVal1=document.getElementById("filterByPrice").value
+        var arr1=[]
+    
+        console.log(filterByPriceVal1)
+         if(filterByPriceVal1==""){
+            return 1
+         }
+         if(filterByPriceVal1=="lth"){
+            var arr1=dealsofTheWeekArr.sort(function(a,b){
+                 return a.price-b.price
+            })
+         }
+         if(filterByPriceVal1=="htl"){
+            var arr1=dealsofTheWeekArr.sort(function(a,b){
+                return b.price-a.price
+           })
+         }
+        console.log(arr1)
+
+         dealsOfTheWeekFun(arr1)
+}
+
+
+
+
 
 function increaseCount(a, b, elem) {
   var input = b.previousElementSibling;

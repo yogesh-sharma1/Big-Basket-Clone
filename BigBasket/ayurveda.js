@@ -101,7 +101,7 @@ var ayurveda = [
 document.getElementById("totalProductCountAyurveda").textContent=ayurveda.length
 ayurvedaFun(ayurveda);
 function ayurvedaFun(ayurveda){
-    
+  document.getElementById("mySmartBasketMainDiv").textContent=""
     ayurveda.map(function(el){
 
         let div=document.createElement("div")
@@ -187,6 +187,37 @@ function ifPresent(nameKey, myArray){
     }
 }
 }
+
+
+document.getElementById("filterByPrice").addEventListener("change",sortByPriceFun)
+
+function sortByPriceFun(){
+  
+   
+    let filterByPriceVal=document.getElementById("filterByPrice").value
+        var arr=[]
+    
+        console.log(filterByPriceVal)
+         if(filterByPriceVal==""){
+            return 1
+         }
+         if(filterByPriceVal=="lth"){
+            var arr=ayurveda.sort(function(a,b){
+                 return a.price-b.price
+            })
+         }
+         if(filterByPriceVal=="htl"){
+            var arr=ayurveda.sort(function(a,b){
+                return b.price-a.price
+           })
+         }
+        
+
+         ayurvedaFun(arr)
+}
+
+
+
 
 function increaseCount(a, b, elem) {
   var input = b.previousElementSibling;
