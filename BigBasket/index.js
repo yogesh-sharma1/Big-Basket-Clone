@@ -53,19 +53,23 @@ function displayMySmartBasket(mySmartBasket){
   mySmartBasket.map(function(el){
       let div=document.createElement("div")
       // let offerDiv=document.createElement("div")
+      
       let image=document.createElement("img")
       image.setAttribute("src",el.image_url)
       image.setAttribute("alt",el.name)
-    
+      image.addEventListener("click",function(){
+        localStorage.setItem("product-details",JSON.stringify(el));
+        imageClick('productDetails.html')
+      })
 
       let desc=document.createElement("p")
       desc.textContent=el.name
 
       let priceDiv=document.createElement("div")
       let price=document.createElement("p")
-      price.textContent=el.price
+      price.textContent="Price : Rs. "+el.price
       let strikedOffPrice=document.createElement("p")
-      strikedOffPrice.textContent=el.strikedoffprice
+      strikedOffPrice.textContent="MRP : Rs. "+el.strikedoffprice
 
       let qDiv=document.createElement("div")
       qDiv.setAttribute("class","quantity buttons_added")
@@ -108,6 +112,7 @@ function displayMySmartBasket(mySmartBasket){
       })
 
       priceDiv.append(price,strikedOffPrice)
+      
       qDiv.append(minInput,dataInput,plusInput)
       div.append(image,desc,priceDiv,qDiv,button)
       document.getElementById("mySmartBasketMainDiv").append(div)
@@ -124,6 +129,7 @@ function addtoCart(product){
   }
   else{
     cartItems.push(product);
+    alert("Successfully added product to the cart!")
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 
@@ -151,7 +157,7 @@ function increaseCount(a, b, elem) {
   
 }
 //   count decrease
-function decreaseCount(b,elem) {
+function decreaseCount(a,b,elem) {
   var input = b.nextElementSibling;
   var value = parseInt(input.value, 10); 
   if (value > 1) {
@@ -160,4 +166,8 @@ function decreaseCount(b,elem) {
     input.value = value;
     elem.quantity=value;
   }
+}
+
+function imageClick(url){
+    window.location=url;
 }
