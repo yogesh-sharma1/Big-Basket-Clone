@@ -4,20 +4,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Big Basket Cart</title>
     <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="navbarNew.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        #bbLogoAndSearchbar > div > input{
+            width: 600px;
+        }
+        @media screen and (max-width: 1060px) {
+            #staticHeader{
+                font-family: ProximaNova-Regular;
+                position: initial;
+                top: 0px;;
+                background: white;
+                z-index:0;
+            }
+            #bbLogoAndSearchbar > div > input{
+                width: auto;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            #bbLogoAndSearchbar > #div1{
+                display: none;
+            }
+            #homePageAddresBar , #homepageDropdown{
+                display: none;
+            }
+            #bbLogoAndSearchbar > img, #cartBasket{
+                margin: 5px;
+            }
+        }
+        
+        @media screen and (max-width: 430px) {
+            #bbLogoAndSearchbar > img{
+                margin-left: -30px;
+            }
+        }
+        @media screen and (max-width: 330px) {
+            #bbLogoAndSearchbar > img{
+                width: 50%;
+            }
+        }
+    </style>
+
 </head>
 <body>
-    <div id="header">
-        <div class="links">
-            <div id="link1">
-                <a href="">Home</a> 
-                <a href="">About Us</a>
-                <a href="">Add Address</a>
+    <!-- Navbar Goes here -->
+    <div id="staticHeader">
+        <div id="homePageAddresBar">
+          <p>
+            <img
+              src="data:image/png;base64,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"><span
+              id="helpLineNum">1860 123 1000</span>
+          </p>
+    
+          <p>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyeRKuT1Dx5i2BHXApLE2W_JwPK9dXLzzBPA&usqp=CAU"><span
+              ><span>560004, Bangalore</span>
+          </p>
+    
+          <p>
+            <a style="background-color: white;" href="../signup and signin/signin.html">Login/Sign Up</a>
+          </p>
+        </div>
+        <!-- end of homepage addresbar -->
+    
+        <!-- start of bbLogoAndSearchbar  -->
+        <div id="bbLogoAndSearchbar">
+          <img src="https://www.bbassets.com/static/staticContent/bb_logo.png" alt="bigbasketLogo">
+          
+          <div id="div1" style="margin-top: 10px">
+            <input style="height: 30px;" type="text" placeholder="Search for Products..."></input>
+            <i style="margin-left: -5px; background-color: #84c225; color: white; padding: 10px;" class="fa fa-search"></i>
+          </div>
+          <div id="cartBasket" class="tooltip">
+            <a style="background-color: whitesmoke;" href="../Big basket/Yogesh/cart.html">
+              <img style="margin-top: -15px;" src="https://www.crushpixel.com/big-static18/preview4/shopping-basket-3116850.jpg" alt="basketImage">
+            </a>
+            <div id="basketItems">
+              <p>My Basket </p>
+              <span id="totaItems"></span>
+              <!-- <span class="tooltiptext">Your basket is empty. Start shopping now.</span> -->
             </div>
+          </div>
+        </div>
+        <!-- end of bbLogoAndSearchbar -->
+    
+        <!-- start of shop by category dropdown -->
+        <div id="homepageDropdown">
+          <div class="dropdown">
+            <button style="height: 36px; width: 250px; font-size: medium;padding: 0px 10px;" class="dropbtn">SHOP BY CATEGORY</button>
+            <div class="dropdown-content">
+              <a style="background-color: white;" href="eggMeatFish.html">Fruits & Vegetables</a>
+              <a style="background-color: white;" href="ayurveda.html">Foodgrains, Oil & Masala</a>
+              <a style="background-color: white;" href="buyMoreSaveMore.html">Bakery, Cakes & Dairy</a>
+              <a style="background-color: white;" href="dealsofTheWeek.html">Baverages</a>
+              <a style="background-color: white;" href="comboStore.html">Snacks & Branded Foods</a>
+              <a style="background-color: white;" href="ayurveda.html">Beauty & Hygiene</a>
+              <a style="background-color: white;" href="eggMeatFish.html">Cleaning & Household</a>
+              <a style="background-color: white;" href="buyMoreSaveMore.html">Kitchen, Garden & Pets</a>
+              <a style="background-color: white;" href="dealsofTheWeek.html">Eggs, Meat & Fish</a>
+              <a style="background-color: white;" href="comboStore.html">Gourmet & World Food</a>
+              <a style="background-color: white;" href="eggMeatFish.html">Baby Care</a>
+            </div>
+          </div>
+          <div style="color: green; font-weight: 600;"><a style=" background-color: white;" href="#"><i style="color:red;margin-right: 4px;" class="fa fa-tag"></i>OFFERS</a></div>
         </div>
     </div>
+
+    <!-- Cart Goes here -->
     <div id="cart">
         <div id="empty-cart">
             <h1>OOPs... Empty! <i class="fa fa-ship" style="font-size:28px;"></i></h1>
@@ -29,7 +127,7 @@
                 <h3>Try Fresh Groceries Today!</h3>
             </div>
             <div>
-                <button><a href="../../BigBasket/index.html">Add Items</a></button>
+                <button class="btn2"><a href="../../BigBasket/index.html">Add Items</a></button>
             </div>
         </div>
         <div id="parent">
@@ -76,6 +174,108 @@
             </div>
         </div>
     </div>
+
+    <div id="myFooter">
+        <footer class="footer">
+            <div class = "container">
+                <!-- <div id = "box">
+                    <h1>bigbasket – online grocery store</h1>
+                    <p>Did you ever imagine that the freshest of fruits and vegetables,top quality pulses and food grains, dairy products and hundreds of branded items could be handpicked and delivered to your home, all at the click of a button? India’s first comprehensive online megastore, bigbasket.com, brings a whopping 20000+ products with more than 1000 brands, to over 4 million happy customers. From household cleaning products to beauty and makeup,
+                         bigbasket has everything you need for your daily needs. bigbasket.com is convenience personified We’ve taken away all the stress associated with shopping for daily essentials, and you can now order all your household products and even buy groceries online without travelling long distances or standing in serpentine queues. Add to this the convenience of finding all your requirements at one single source, along with great savings, and
+                         you will realize that bigbasket- India’s largest online supermarket, has revolutionized the way India shops for groceries. Online grocery shopping has never been easier. Need things fresh? Whether it’s fruits and vegetables or dairy and meat, we have this covered as well! Get fresh eggs, meat, fish and more online at your convenience. Hassle-free Home Delivery options</p>
+                    <p>We deliver to 25 cities across India and maintain excellent delivery times, ensuring that all your products from groceries to snacks branded foods reach you in time.</p>
+                    <ul>
+                        <li>Slotted Delivery: Pick the most convenient delivery slot to have your grocery delivered. From early morning delivery for early birds, to late-night delivery for people who work the late shift, bigbasket caters to every schedule.</li>
+                        <li>Express Delivery: This super useful service can be availed by customers in cities like Bangalore, Mumbai, Pune, Chennai, Kolkata, Hyderabad and Delhi-NCR in which we deliver your orders to your doorstep in 90 Minutes.</li>
+                        <li>BB Specialty stores: Missed out on buying that essential item from your favorite neighborhood store for tonight’s party? We’ll deliver it for you! From bakery, sweets and meat to flowers and chocolates, we deliver your order in 90 minutes, through a special arrangement with a nearby specialty store, verified by us.</li>
+                    </ul>
+                    <h1> India’s biggest Online Supermarket</h1>
+                    <p>bigbasket.com believes in providing the highest level of customer service and is continuously innovating to meet customer expectations. Our On-time Guarantee is one such assurance where we refund 10% of the bill value if the delivery is delayed. For all your order values above Rs. 1000, we provide free delivery. A wide range of imported and gourmet products are available through our express delivery and slotted delivery service. 
+                        If you ever find an item missing on delivery or want to return a product, you can report it to us within 48 hours for a ‘no-questions-asked’ refund.</p>
+                    <p>Best quality products for our quality-conscious customers.</p>
+                    <p>bigbasket.com is synonymous with superior quality and continues to strive for higher levels of customer trust and confidence, by taking feedback and giving our customers what they want. We have added the convenience of pre-cut fruits in our Fresho range. If it’s a product category you’re looking to shop from, we’ve made it convenient for you to access all products in a section easily. For instance, if you’re looking for beverages, 
+                        you can order from a long list of beverages that include cool drinks, hot teas, fruit juices and more.</p>
+                    <p>We are proud to be associated closely with the farmers from whom we source our fresh products. Most of our farm-fresh products are sourced directly from farmers, which not only ensures the best prices and freshest products for our customers but also helps the farmers get better prices. With more than 80 Organic Fruits and Vegetables and a wide range of organic staples, bigbasket has the largest range in the organic products category.</p>
+                    <p>When it comes to payment, we have made it easy for our customers can pay through multiple payment channels like Credit and Debit cards, Internet Banking, e-wallets and Sodexo passes or simply pay Cash on Delivery (COD).The convenience of shopping for home and daily needs, while not compromising on quality, has made bigbasket.com the online supermarket of choice for thousands of happy customers across India.</p>
+                </div>
+                <div class = "row">
+                    <div class="footer-col">
+                        <h4>bigbasket</h4>
+                        <ul>
+                            <li><a href="https://www.bigbasket.com/about-us/?nc=bt">About Us</a></li>
+                            <li><a href="https://www.bigbasket.com/in-media/?nc=bt">In News </a></li>
+                            <li><a href="https://www.bigbasket.com/green-bigbasket/?nc=bt">Green bigbasket </a></li>
+                            <li><a href="https://www.bigbasket.com/privacy-policy/?nc=bt">Privacy Policy </a></li>
+                            <li><a href="https://www.bigbasket.com/affiliate-index/?nc=bt">Affiliate </a></li>
+                            <li><a href="https://www.bigbasket.com/terms-and-conditions/?nc=bt">Terms and Conditions </a></li>
+                            <li><a href="https://careers.bigbasket.com/?nc=bt">Careers At bigbasket </a></li>
+                            <li><a href="https://bbinstant.bigbasket.com/?nc=bt">bb Instant </a></li>
+                            <li><a href="https://www.bbdaily.com/?nc=bt">bb Daily </a></li>
+                            <li><a href="https://blog.bigbasket.com/?nc=bt">bb Blog </a></li>
+                            <li><a href="https://www.bigbasket.com/bbnow/?nc=bt">bbnow</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Help</h4>
+                        <ul>
+                            <li><a href="https://www.bigbasket.com/faq/?nc=bt">FAQs</a></li>
+                            <li><a href="https://www.bigbasket.com/contact/?nc=bt">Contact Us </a></li>
+                            <li><a href="https://www.bigbasket.com/bb-Wallet-faq/">bb Wallet FAQs</a></li>
+                            <li><a href="https://www.bigbasket.com/bb-wallet-terms-and-conditions/">bb Wallet T&Cs</a></li>
+                            <li><a href="https://bbvendorconnect.saturam.com/">Vendor Connect</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Download Our App</h4>
+                        <ul>
+                            <li><a href="https://play.google.com/store/apps/details?id=com.bigbasket.mobileapp"><img src="https://www.bbassets.com/static/v2645/custPage/build/content/img/Google-App-store-icon.png"> </a></li>
+                            <li><a href="https://itunes.apple.com/in/app/bigbasket.com/id660683603?mt=8&uo=4"><img src="https://www.bbassets.com/static/v2645/custPage/build/content/img/Apple-App-store-icon.png"> </a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Get Social With Us</h4>
+                        <div class="SocialLink">
+                            <a class="face" href="https://www.facebook.com/pages/Bigbasketcom/139311472851666"><i class="fab fa-facebook-f"></i></a>
+                            <a class= "pin" href="https://in.pinterest.com/bigbasketcom/"><i class="fab fa-pinterest"></i></a>
+                            <a class="twit" href="https://twitter.com/Bigbasket_com"><i class="fab fa-twitter"></i></a>
+                            <a class="insta" href="https://www.instagram.com/bigbasketcom/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div> -->
+                <hr>
+                <div id = "whole-table">
+                    <table>
+                        <tr>
+                            <td class = "heading"><div class="properties">POPULAR CATEGORIES:</div></td>
+                            <td >Sunflower Oils, Wheat Atta, Ghee, Milk, Health Drinks, Flakes, Organic F&V, Namkeen, Eggs, Floor Cleaners, Other Juices, Leafy Vegetables, Frozen Veg Food, Diapers & Wipes,</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td class = "heading"><div class="properties">POPULAR BRANDS:</td>
+                            <td>
+                                Amul, Nescafe , MTR, RED BULL , elite cake, Pediasure, Yummiez, Yera, Yakult, Britannia, Wow Momo, Fortune , Haldirams , Ferrero, Lays, Patanjali, McCain, kwality walls, Cadbury Dairy Milk, Pedigree,</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td class = "heading"><div class="properties">CITIES WE SERVE:</td>
+                            <td>
+                                Bangalore, Hyderabad, Mumbai, Pune, Chennai, Delhi, Mysore, Madurai, Coimbatore, Vijayawada-Guntur, Kolkata, Ahmedabad-Gandhinagar, Nashik Business, Lucknow-Kanpur, Gurgaon, Vadodara, Visakhapatnam, Surat, Nagpur, Patna, Indore, Chandigarh Tricity, Jaipur,
+                                Bhopal, Noida-Ghaziabad, Kochi, Krishna District, Bhubaneshwar-Cuttack, Guwahati, Renigunta, Hubli, Davanagere, Trichy, Amravati, Raipur, Rajkot, Gwalior, Bareilly, Allahabad, Hyderabad Rural, Bangalore Rural, Chennai Rural, Vizag Rural, Lucknow Rural, Noida Rural, Ahmedabad Rural, Bhopal Rural, Bhubaneswar Rural, Coimbatore Rural, Chandigarh Rural, Gurugram Rural, Guwahati Rural, Indore Rural, 
+                                Kochi Rural, Kolkata Rural, Mumbai Rural, Mysore Rural, Nagpur Rural, Patna Rural, Pune Rural, Surat Rural, Vadodara Rural, Jaipur Rural, Ranchi, Nashik, Agra, Kozhikode, Amritsar, </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td class = "heading"><div class="properties">PAYMENT OPTIONS:</td>
+                            <td> <img class = "size" src = "C:\Users\akoun\OneDrive\Desktop\Footer\payment.jpg"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
 <script>
@@ -83,6 +283,8 @@
     
     var totalItems = document.getElementById('span-items');
     totalItems.textContent = cartItems.length + " items";
+
+    document.getElementById('totaItems').textContent = cartItems.length + " Items";
 
     var cartDiv = document.getElementById('parent');
     var cartTotal = localStorage.getItem('cartTotal') || 0;
@@ -133,6 +335,8 @@
         var btn1  = document.createElement('button');
         btn1.textContent = " - "
         var quantity = document.createElement('span');
+        quantity.style.fontSize = "x-large";
+        quantity.style.margin = "0px 10px";
         quantity.textContent = elem.quantity
         var btn2  = document.createElement('button');
         btn2.textContent = " + ";
