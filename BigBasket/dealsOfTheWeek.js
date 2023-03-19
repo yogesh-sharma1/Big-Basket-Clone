@@ -125,6 +125,10 @@ function dealsOfTheWeekFun(dealsofTheWeekArr){
         let image=document.createElement("img")
         image.setAttribute("src",el.image_url)
         image.setAttribute("alt",el.name)
+        image.addEventListener("click",function(){
+          localStorage.setItem("product-details",JSON.stringify(el));
+          imageClick('productDetails.html')
+        })
         let desc=document.createElement("p")
         desc.textContent=el.name
 
@@ -258,4 +262,7 @@ function decreaseCount(a, b,elem) {
     input.value = value;
     elem.quantity=value;
   }
+}
+function imageClick(url){
+  window.location=url;
 }
