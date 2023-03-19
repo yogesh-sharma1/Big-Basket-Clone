@@ -134,9 +134,9 @@ function dealsOfTheWeekFun(dealsofTheWeekArr){
 
         let priceDiv=document.createElement("div")
         let price=document.createElement("p")
-        price.textContent=el.price
+        price.textContent="Price : Rs. "+el.price
         let strikedOffPrice=document.createElement("p")
-        strikedOffPrice.textContent=el.strikedoffprice
+        strikedOffPrice.textContent="MRP : Rs. "+el.strikedoffprice
 
 
         let qDiv=document.createElement("div")
