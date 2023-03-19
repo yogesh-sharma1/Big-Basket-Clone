@@ -12,9 +12,9 @@ b{
 #homePageAddresBar{
   display:flex;
   justify-content: right;
-  /* width:90%; */
-  /* margin-left: auto; */
-  /* margin-right: auto; */
+   width:90%; 
+   margin-left: auto; 
+  margin-right: auto; 
   align-items: first baseline;
   gap: 20px;
   /* margin-top: -15px; */
@@ -33,7 +33,7 @@ b{
 /* start of bbLogoAndSearchbar */
 #bbLogoAndSearchbar{
   display: flex;
-  width:90%;
+  width:80%;
   margin-left: auto;
   margin-right: auto;
   justify-content: space-between;
@@ -101,7 +101,7 @@ b{
 #homepageDropdown{
   display:flex;
   align-items: center;
-  width:90%;
+  width:80%;
   margin-left: auto;
   margin-right: auto;
   gap:20px;
@@ -180,10 +180,13 @@ b{
 #homePageButtons{
   display:flex;
   gap: 10px;
-  width: 90%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
+}
+#homePageButtons img{
+  width:100%;
 }
 /* end of homepagebuttons */
 /*  */
@@ -195,7 +198,7 @@ b{
   font-size: 24px;
 }
 #mySmartBasket+div{
-  width:90%;
+  width:80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -222,7 +225,8 @@ margin-top: 10px;
 
 #mySmartBasketMainDiv > div{
   padding:20px;
-  width: 80%;
+  width: 77%;
+  gap:20px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
@@ -337,7 +341,7 @@ margin-top: 10px;
 
 #bankOffers,#mostPopularImg,#topoffersImg,#brandStoreImg{
   display:flex;
-  width:90%;
+  width:80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -368,11 +372,76 @@ margin-top: 10px;
 }
 
 #homePageLastImage{
-  width:90%;
+  width:100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 35px;
 }
 #homePageLastImage>img{
   width:100%;
+}
+
+/* for tablet */
+@media all and (min-width: 768px) and (max-width:1023px){
+  #homePageAddresBar,#cartBasket,#bbLogoAndSearchbar>img{
+    display: none;
+  }
+  #bbLogoAndSearchbar>input[type=text]{
+    width: 100%;
+    height:15px;
+  }
+  #homePageButtons,#mySmartBasketMainDiv{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+  }
+  #bankOffers,#mostPopularImg,#topoffersImg,#brandStoreImg{
+        display: 100%;
+  }
+  #brandStoreImg{
+    display:flex;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  }
+  #brandStoreImg>img{
+    width:12%;
+    margin-right:22px;
+    cursor: pointer;
+    border: 1px solid rgb(235, 224, 224);
+    
+  }
+ 
+}
+
+/* for mobile */
+@media all and (min-width: 340px) and (max-width:767px){
+  #homePageAddresBar,#cartBasket,#bbLogoAndSearchbar>img{
+    display: none;
+  }
+  #bbLogoAndSearchbar>input[type=text]{
+    width: 100%;
+    height:15px;
+  }
+  #homePageButtons,#mySmartBasketMainDiv{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+  #bankOffers,#mostPopularImg,#topoffersImg{
+    display: 100%;
+}
+#brandStoreImg{
+  display:flex;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+#brandStoreImg>img{
+  width:12%;
+  margin-right:28px;
+  cursor: pointer;
+  border: 1px solid rgb(235, 224, 224);;
+}
+
 }
