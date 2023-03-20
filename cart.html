@@ -249,21 +249,21 @@
         document.getElementById('parent-2').style.display="none";
     }
     
-    display();
-    function display(){
+    display(cartItems);
+
+    function display(cartItems){        
+    cartItems.map((elem,idx)=>{
+        var div = document.createElement('div');
+        div.setAttribute('id','myDiv');
+        var leftdiv = document.createElement('div');
+        leftdiv.setAttribute('id','leftdiv');
         
-        cartItems.map((elem,idx)=>{
-            var div = document.createElement('div');
-            
-            var leftdiv = document.createElement('div');
-            leftdiv.setAttribute('id','leftdiv');
-            
-            var img = document.createElement('img');
-            img.setAttribute('src',elem.image_url);
-            
-            var infoDiv = document.createElement('div');
-            var brand = document.createElement('p');
-            brand.textContent = elem.brand;
+        var img = document.createElement('img');
+        img.setAttribute('src',elem.image_url);
+        
+        var infoDiv = document.createElement('div');
+        var brand = document.createElement('p');
+        brand.textContent = elem.brand;
         brand.style.fontSize = "18px"
         brand.style.color = "rgb(170, 170, 170)"
         var name = document.createElement('p');
@@ -459,8 +459,15 @@
     }
 
     function handleDelete(index){
+        var head = document.getElementById('t-head');
+        cartTotal = cartTotal - (cartItems[index].price * cartItems[index].quantity)
         cartItems.splice(index,1);
-        display();
+        document.getElementById('parent').textContent = ""
+        localStorage.setItem("cartTotal",cartTotal);
+        localStorage.setItem('cartItems',JSON.stringify(cartItems));
+        document.getElementById('parent').append(head);
+        display(cartItems);
     }
+    // display();
 
 </script>
