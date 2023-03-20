@@ -3,7 +3,8 @@ var ayurveda = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40135131_8-dabur-chyawanprash-2x-immunity.jpg",
         name: "Dabur Chyawanprash, 2 kg",
-      price: 660 ,
+      brand: "DABUR",
+       price: 660 ,
       strikedoffprice: 750,
       quantity:1
     },
@@ -11,7 +12,8 @@ var ayurveda = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40050841_6-dabur-hajmola-anardana-digestive-tablets.jpg",
         name: "Dabur Hajmola Anardana - Digestive Tablets, 120 pcs",
-      price: 58.20 ,
+      brand: "DABUR",
+       price: 58.20 ,
       strikedoffprice: 60,
       quantity:1
     },
@@ -19,7 +21,8 @@ var ayurveda = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40113632_2-dabur-sat-isabgol-effective-relief-from-constipation.jpg",
          name: "Dabur Sat Isabgol - Effective Relief From Constipation, 200 g",
-      price: 213.75 ,
+      brand: "DABUR",
+       price: 213.75 ,
       strikedoffprice: 225,
       quantity:1
     },
@@ -27,7 +30,8 @@ var ayurveda = [
       image_url:
       "https://www.bigbasket.com/media/uploads/p/s/263775_7-dabur-hajmola-imli-digestive-tablets.jpg",
        name:"Dabur Hajmola Imli - Digestive Tablets, 120 pcs",
-      price: 58.20 ,
+      brand: "DABUR",
+       price: 58.20 ,
       strikedoffprice: 60,
       quantity:1
     },
@@ -35,7 +39,8 @@ var ayurveda = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/40113632_2-dabur-sat-isabgol-effective-relief-from-constipation.jpg",
            name: "Dabur Sat Isabgol - Effective Relief From Constipation, 200 g",
-        price: 213.75,
+        brand: "DABUR",
+       price: 213.75,
         strikedoffprice: 225,
         quantity:1
       },
@@ -43,7 +48,8 @@ var ayurveda = [
         image_url:
         "https://www.bigbasket.com/media/uploads/p/s/263775_7-dabur-hajmola-imli-digestive-tablets.jpg",
          name:"Dabur Hajmola Imli - Digestive Tablets, 120 pcs",
-        price:58.20 ,
+        brand: "DABUR",
+       price:58.20 ,
         strikedoffprice: 60,
         quantity:1
       },
@@ -51,7 +57,8 @@ var ayurveda = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/40135131_8-dabur-chyawanprash-2x-immunity.jpg",
           name: "Dabur Chyawanprash, 2 kg",
-        price: 660 ,
+        brand: "DABUR",
+       price: 660 ,
         strikedoffprice: 750,
         quantity:1
       },
@@ -59,7 +66,8 @@ var ayurveda = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/40050841_6-dabur-hajmola-anardana-digestive-tablets.jpg",
           name: "Dabur Hajmola Anardana - Digestive Tablets, 120 pcs",
-        price: 58.20 ,
+        brand: "DABUR",
+       price: 58.20 ,
         strikedoffprice: 60,
         quantity:1
       },
@@ -67,7 +75,8 @@ var ayurveda = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/40050841_6-dabur-hajmola-anardana-digestive-tablets.jpg",
           name: "Dabur Hajmola Anardana - Digestive Tablets, 120 pcs",
-        price: 58.20 ,
+        brand: "DABUR",
+       price: 58.20 ,
         strikedoffprice: 60,
         quantity:1
       },
@@ -75,7 +84,8 @@ var ayurveda = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/40113632_2-dabur-sat-isabgol-effective-relief-from-constipation.jpg",
            name: "Dabur Sat Isabgol - Effective Relief From Constipation, 200 g",
-        price: 213.75 ,
+        brand: "DABUR",
+       price: 213.75 ,
         strikedoffprice: 225,
         quantity:1
       },
@@ -83,7 +93,8 @@ var ayurveda = [
         image_url:
         "https://www.bigbasket.com/media/uploads/p/s/263775_7-dabur-hajmola-imli-digestive-tablets.jpg",
          name:"Dabur Hajmola Imli - Digestive Tablets, 120 pcs",
-        price:58.20,
+        brand: "DABUR",
+       price:58.20,
         strikedoffprice: 60,
         quantity:1
       },
@@ -91,13 +102,15 @@ var ayurveda = [
           image_url:
             "https://www.bigbasket.com/media/uploads/p/s/40113632_2-dabur-sat-isabgol-effective-relief-from-constipation.jpg",
              name: "Dabur Sat Isabgol - Effective Relief From Constipation, 200 g",
-          price: 213.75,
+          brand: "DABUR",
+       price: 213.75,
           strikedoffprice: 225,
           quantity:1
         },
        
 ]
 
+document.querySelector("body").setAttribute("style", "align-items:center; height: 80vh;background-image: url('https://img.freepik.com/free-vector/geometric-frame-background-green-modern-design-vector_53876-157567.jpg?size=626&ext=jpg&ga=GA1.2.232835331.1679132289&semt=ais'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;")
 document.getElementById("totalProductCountAyurveda").textContent=ayurveda.length
 ayurvedaFun(ayurveda);
 function ayurvedaFun(ayurveda){

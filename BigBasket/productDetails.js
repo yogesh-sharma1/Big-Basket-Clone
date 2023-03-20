@@ -5,11 +5,8 @@ let image=document.createElement("img")
 image.setAttribute("src",currElement.image_url)
 
 
-
-
-
-let name=document.createElement("p")
-name.textContent=currElement.name
+let name1=document.createElement("p")
+name1.textContent=currElement.name
 
 let brandName=document.createElement("p")
 brandName.textContent=currElement.brand
@@ -53,10 +50,10 @@ plusInput.setAttribute("value","+")
 plusInput.setAttribute("class","plus")
 
 minInput.addEventListener("click",function(){
-  decreaseCount(event, this,currElement)
+  decreaseCount(this,currElement)
 }) 
 plusInput.addEventListener("click",function(event){
-  increaseCount(event, this,currElement)
+  increaseCount(this,currElement)
 }) 
 
 let brk=document.createElement("br")
@@ -89,6 +86,7 @@ document.getElementById("container").append(document.getElementById("image"),doc
 
 
 var cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+var cartTotal = localStorage.getItem('cartTotal') || 0;
 
 function addtoCart(product){
   console.log(product.name)
@@ -98,7 +96,9 @@ function addtoCart(product){
   }
   else{
     cartItems.push(product);
+    cartTotal = parseInt(cartTotal) + product.price;
     alert("Successfully added product to the cart!")
+    localStorage.setItem("cartTotal", cartTotal);
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 

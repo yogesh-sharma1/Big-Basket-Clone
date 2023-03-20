@@ -3,7 +3,8 @@ var dealsofTheWeekArr = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40216129_10-fresho-tender-coconut-water-no-added-sugar-flavours.jpg",
         name: "Fresho Tender Coconut Water - No Added Sugar, Flavours, 200 ml Bottle",
-      price: 42,
+      brand: "REAL",
+       price: 42,
       strikedoffprice: 50,
       quantity:1
     },
@@ -11,7 +12,8 @@ var dealsofTheWeekArr = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/30007713_8-cavins-milkshake-strawberry.jpg",
          name: "Cavins Strawberry Milkshake - With Zinc, Vitamin A & D Added, Immunity Booster, 200 ml Tetra Pack ",
-      price: 30,
+      brand: "REAL",
+       price: 30,
       strikedoffprice: 40,
       quantity:1
     },
@@ -19,7 +21,8 @@ var dealsofTheWeekArr = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40127644_5-cavins-rose-lassi.jpg",
          name: "Cavins Rose Lassi - With Zinc, Vitamin A & D Added, Supports Immunity, 180 ml",
-      price: 18.75,
+      brand: "REAL",
+       price: 18.75,
       strikedoffprice: 25,
       quantity:1
     },
@@ -27,7 +30,8 @@ var dealsofTheWeekArr = [
       image_url:
       "https://www.bigbasket.com/media/uploads/p/s/30007714_8-cavins-milkshake-chocolate.jpg",
       name:"Cavins Chocolate Milkshake - With Zinc, Vitamin A & D Added, Immunity Booster, 200 ml Tetra Pack",
-      price:30,
+      brand: "REAL",
+       price:30,
       strikedoffprice: 40,
       quantity:1
     },
@@ -36,7 +40,8 @@ var dealsofTheWeekArr = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
           name: "Real Fruit Power Juice - Mixed, 1 L",
-        price: 102,
+        brand: "REAL",
+       price: 102,
         strikedoffprice: 120,
         quantity:1
       },
@@ -44,7 +49,8 @@ var dealsofTheWeekArr = [
         image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40056927_9-park-avenue-perfume-spray-voyage.jpg",
          name:"Park Avenue Perfume Spray - Voyage, 220 ml (Mega Pack)",
-        price:262.50,
+        brand: "REAL",
+       price:262.50,
         strikedoffprice: 375,
         quantity:1
       },
@@ -52,7 +58,8 @@ var dealsofTheWeekArr = [
           image_url:
             "https://www.bigbasket.com/media/uploads/p/s/236283_4-gillette-foam-shave-lathers-quickly-hydrates-regular.jpg",
             name: "Gillette Foam Shave - Lathers Quickly & Hydrates, Regular, 418 g ",
-          price: 199.20,
+          brand: "REAL",
+       price: 199.20,
           strikedoffprice: 249,
           quantity:1
         },
@@ -60,7 +67,8 @@ var dealsofTheWeekArr = [
           image_url:
             "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
             name: "Real Fruit Power Juice - Mixed, 1 L",
-          price: 102,
+          brand: "REAL",
+       price: 102,
           strikedoffprice: 120,
           quantity:1
         },
@@ -68,7 +76,8 @@ var dealsofTheWeekArr = [
             image_url:
               "https://www.bigbasket.com/media/uploads/p/s/40127644_5-cavins-rose-lassi.jpg",
                name: "Cavins Rose Lassi - With Zinc, Vitamin A & D Added, Supports Immunity, 180 ml",
-            price: 18.75,
+            brand: "REAL",
+       price: 18.75,
             strikedoffprice: 25,
             quantity:1
           },
@@ -76,7 +85,8 @@ var dealsofTheWeekArr = [
             image_url:
             "https://www.bigbasket.com/media/uploads/p/s/30007714_8-cavins-milkshake-chocolate.jpg",
             name:"Cavins Chocolate Milkshake - With Zinc, Vitamin A & D Added, Immunity Booster, 200 ml Tetra Pack",
-            price:30,
+            brand: "REAL",
+       price:30,
             strikedoffprice: 40,
             quantity:1
           },
@@ -85,7 +95,8 @@ var dealsofTheWeekArr = [
               image_url:
                 "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
                 name: "Real Fruit Power Juice - Mixed, 1 L",
-              price: 102,
+              brand: "REAL",
+       price: 102,
               strikedoffprice: 120,
               quantity:1
             },
@@ -93,7 +104,8 @@ var dealsofTheWeekArr = [
               image_url:
               "https://www.bigbasket.com/media/uploads/p/s/40056927_9-park-avenue-perfume-spray-voyage.jpg",
                name:"Park Avenue Perfume Spray - Voyage, 220 ml (Mega Pack)",
-              price:262.50,
+              brand: "REAL",
+       price:262.50,
               strikedoffprice: 375,
               quantity:1
             },
@@ -101,7 +113,8 @@ var dealsofTheWeekArr = [
                 image_url:
                   "https://www.bigbasket.com/media/uploads/p/s/236283_4-gillette-foam-shave-lathers-quickly-hydrates-regular.jpg",
                   name: "Gillette Foam Shave - Lathers Quickly & Hydrates, Regular, 418 g ",
-                price: 199.20,
+                brand: "REAL",
+       price: 199.20,
                 strikedoffprice: 249,
                 quantity:1
               },
@@ -109,12 +122,14 @@ var dealsofTheWeekArr = [
                 image_url:
                   "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
                   name: "Real Fruit Power Juice - Mixed, 1 L",
-                price: 102,
+                brand: "REAL",
+       price: 102,
                 strikedoffprice: 120,
                 quantity:1
               },
 ]
 
+document.querySelector("body").setAttribute("style", "align-items:center; height: 80vh;background-image: url('https://img.freepik.com/free-vector/geometric-frame-background-green-modern-design-vector_53876-157567.jpg?size=626&ext=jpg&ga=GA1.2.232835331.1679132289&semt=ais'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;")
 document.getElementById("totalProductCountDOW").textContent=dealsofTheWeekArr.length
 dealsOfTheWeekFun(dealsofTheWeekArr);
 function dealsOfTheWeekFun(dealsofTheWeekArr){

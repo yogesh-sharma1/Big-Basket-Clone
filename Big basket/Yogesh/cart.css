@@ -225,11 +225,11 @@ button{
     #parent #leftdiv{
         margin-left: 0px;
     }
-}
-@media screen and (max-width: 425px) {
     #leftdiv img{
         display: none;
     }
+}
+@media screen and (max-width: 425px) {
     #leftdiv > div{
         text-align: left;
     }

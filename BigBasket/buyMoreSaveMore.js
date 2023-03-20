@@ -3,7 +3,8 @@ var buyMoreSaveMore = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40178581_9-gillette-mach-3-bladed-shaving-cartridgesrazor-with-lubrication-strip-protects-skin.jpg",
          name: "Gillette Mach 3 Bladed Shaving Cartridges/Razor - With Lubrication Strip, Protects Skin, 16 pcs",
-      price: 1443.75,
+      brand: "GILLETTE",
+       price: 1443.75,
       strikedoffprice: 1925,
       quantity:1
     },
@@ -11,7 +12,8 @@ var buyMoreSaveMore = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/236283_4-gillette-foam-shave-lathers-quickly-hydrates-regular.jpg",
         name: "Gillette Foam Shave - Lathers Quickly & Hydrates, Regular, 418 g ",
-      price: 199.20 ,
+      brand: "GILLETTE",
+       price: 199.20 ,
       strikedoffprice: 249,
       quantity:1
     },
@@ -19,7 +21,8 @@ var buyMoreSaveMore = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
         name: "Real Fruit Power Juice - Mixed, 1 L",
-      price: 102,
+      brand: "REAL",
+       price: 102,
       strikedoffprice: 120,
       quantity:1
     },
@@ -27,7 +30,8 @@ var buyMoreSaveMore = [
       image_url:
       "https://www.bigbasket.com/media/uploads/p/s/40056927_9-park-avenue-perfume-spray-voyage.jpg",
        name:"Park Avenue Perfume Spray - Voyage, 220 ml (Mega Pack)",
-      price:262.50 ,
+      brand: "PARK AVENUE",
+       price:262.50 ,
       strikedoffprice: 375,
       quantity:1
     },
@@ -35,7 +39,8 @@ var buyMoreSaveMore = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/236283_4-gillette-foam-shave-lathers-quickly-hydrates-regular.jpg",
           name: "Gillette Foam Shave - Lathers Quickly & Hydrates, Regular, 418 g ",
-        price: 199.20,
+        brand: "GILLETTE",
+       price: 199.20,
         strikedoffprice: 249,
         quantity:1
       },
@@ -43,7 +48,8 @@ var buyMoreSaveMore = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
           name: "Real Fruit Power Juice - Mixed, 1 L",
-        price: 102 ,
+        brand: "REAL",
+       price: 102 ,
         strikedoffprice: 120,
         quantity:1
       },
@@ -51,7 +57,8 @@ var buyMoreSaveMore = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/40178581_9-gillette-mach-3-bladed-shaving-cartridgesrazor-with-lubrication-strip-protects-skin.jpg",
            name: "Gillette Mach 3 Bladed Shaving Cartridges/Razor - With Lubrication Strip, Protects Skin, 16 pcs",
-        price: 1443.75,
+        brand: "GILLETTE",
+       price: 1443.75,
         strikedoffprice: 1925,
         quantity:1
       },
@@ -59,7 +66,8 @@ var buyMoreSaveMore = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/236283_4-gillette-foam-shave-lathers-quickly-hydrates-regular.jpg",
           name: "Gillette Foam Shave - Lathers Quickly & Hydrates, Regular, 418 g ",
-        price: 199.20 ,
+        brand: "GILLETTE",
+       price: 199.20 ,
         strikedoffprice: 249,
         quantity:1
       },
@@ -67,7 +75,8 @@ var buyMoreSaveMore = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
           name: "Real Fruit Power Juice - Mixed, 1 L",
-        price: 102,
+        brand: "REAL",
+       price: 102,
         strikedoffprice: 120,
         quantity:1
       },
@@ -75,7 +84,8 @@ var buyMoreSaveMore = [
         image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40056927_9-park-avenue-perfume-spray-voyage.jpg",
          name:"Park Avenue Perfume Spray - Voyage, 220 ml (Mega Pack)",
-        price:262.50 ,
+        brand: "PARK AVENUE",
+       price:262.50 ,
         strikedoffprice: 375,
         quantity:1
       },
@@ -83,7 +93,8 @@ var buyMoreSaveMore = [
           image_url:
             "https://www.bigbasket.com/media/uploads/p/s/236283_4-gillette-foam-shave-lathers-quickly-hydrates-regular.jpg",
             name: "Gillette Foam Shave - Lathers Quickly & Hydrates, Regular, 418 g ",
-          price: 199.20,
+          brand: "GILLETTE",
+       price: 199.20,
           strikedoffprice: 249,
           quantity:1
         },
@@ -91,12 +102,14 @@ var buyMoreSaveMore = [
           image_url:
             "https://www.bigbasket.com/media/uploads/p/s/229922_5-real-fruit-power-juice-mixed.jpg",
             name: "Real Fruit Power Juice - Mixed, 1 L",
-          price: 102,
+          brand: "REAL",
+       price: 102,
           strikedoffprice: 120,
           quantity:1
         },
 ]
 
+document.querySelector("body").setAttribute("style", "align-items:center; height: 80vh;background-image: url('https://img.freepik.com/free-vector/geometric-frame-background-green-modern-design-vector_53876-157567.jpg?size=626&ext=jpg&ga=GA1.2.232835331.1679132289&semt=ais'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;")
 document.getElementById("totalProductCountBMSM").textContent=buyMoreSaveMore.length
       buyMoreSaveMoreFun(buyMoreSaveMore);
 

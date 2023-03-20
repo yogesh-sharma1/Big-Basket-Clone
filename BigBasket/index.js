@@ -47,6 +47,13 @@ var mySmartBasket = [
     
 ]
 
+  var users = JSON.parse(localStorage.getItem('users')) || [];
+  var userLogin = document.getElementById('userLogin');
+  
+  if(users.length > 0){
+      userLogin.textContent = users[0].name;
+  }
+
 displayMySmartBasket(mySmartBasket)
 
 function displayMySmartBasket(mySmartBasket){
@@ -98,10 +105,10 @@ function displayMySmartBasket(mySmartBasket){
       plusInput.setAttribute("class","plus")
      
       minInput.addEventListener("click",function(){
-        decreaseCount(event, this,el)
+        decreaseCount(dataInput,el)
       }) 
       plusInput.addEventListener("click",function(event){
-        increaseCount(event, this,el)
+        increaseCount(dataInput,el)
       }) 
 
 
@@ -120,23 +127,27 @@ function displayMySmartBasket(mySmartBasket){
 }
 
 var cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+var cartTotal = localStorage.getItem("cartTotal") || 0;
 
 function addtoCart(product){
   console.log(product.name)
   var pres=ifPresent(product.name,cartItems)
-  if(pres==true){
+  if(pres){
     alert("This product is already added!")
   }
   else{
+    // product.quantity++;
     cartItems.push(product);
+    cartTotal = parseInt(cartTotal) + product.price
     alert("Successfully added product to the cart!")
+    localStorage.setItem("cartTotal", JSON.stringify(cartTotal));
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 
-  document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cartItems")).length+ " items"
+  document.getElementById("totaItems").textContent = cartItems.length + " items"
 }
 
-document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cartItems")).length+ " items"
+document.getElementById("totaItems").textContent = cartItems.length + " items"
 
 function ifPresent(nameKey, myArray){
   for (let i=0; i < myArray.length; i++) {
@@ -147,26 +158,48 @@ function ifPresent(nameKey, myArray){
 }
 
 // count increase
-function increaseCount(a, b, elem) {
-  var input = b.previousElementSibling;
-  var value = parseInt(input.value, 10); 
-  value = isNaN(value)? 0 : value;
-  value++;
-  input.value = value;
-  elem.quantity=value;
-  
-}
+// function increaseCount(a, b, elem) {
+//   var input = b.previousElementSibling;
+//   var value = parseInt(input.value, 10); 
+//   value = isNaN(value)? 0 : value;
+//   value++;
+//   input.value = value;
+//   elem.quantity=value;
+// }
 //   count decrease
-function decreaseCount(a,b,elem) {
-  var input = b.nextElementSibling;
-  var value = parseInt(input.value, 10); 
-  if (value > 1) {
-    value = isNaN(value)? 0 : value;
-    value--;
-    input.value = value;
-    elem.quantity=value;
+// function decreaseCount(a,b,elem) {
+//   var input = b.nextElementSibling;
+//   var value = parseInt(input.value, 10); 
+//   if (value > 1) {
+//     value = isNaN(value)? 0 : value;
+//     value--;
+//     input.value = value;
+//     elem.quantity=value;
+//   }
+// }
+
+function decreaseCount(a,item){
+  if(item.quantity > 0){
+      item.quantity--;
+      a.value = item.quantity;
+      cartTotal -= item.price;
+      localStorage.setItem('cartItems',JSON.stringify(cartItems));
+      localStorage.setItem('cartTotal',cartTotal);
+      console.log(item.quantity);
   }
 }
+
+function increaseCount(a,item){
+  // if(item)
+  item.quantity++;
+  a.value = item.quantity;
+  cartTotal = parseInt(cartTotal) + item.price;
+  localStorage.setItem('cartItems',JSON.stringify(cartItems));
+  localStorage.setItem('cartTotal',cartTotal);
+  console.log( item.quantity);
+}
+
+
 
 function imageClick(url){
     window.location=url;

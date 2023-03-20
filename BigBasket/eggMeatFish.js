@@ -3,7 +3,8 @@ var eggMeatFish = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/10000909_8-fresho-chicken-curry-cut-without-skin-antibiotic-residue-free.jpg",
         name: "Fresho Chicken - Curry Cut Without Skin, Antibiotic Residue-Free, 6 To 9 Pcs, 250 g",
-        price: 80,
+        brand: "FRESHO",
+       price: 80,
         strikedoffprice: 120,
         quantity:1
     },
@@ -11,7 +12,8 @@ var eggMeatFish = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/150502_6-fresho-farm-eggs-table-tray-medium-antibiotic-residue-free.jpg",
          name: "Fresho Farm Eggs - Table Tray, Medium, Antibiotic Residue-Free, 30 pcs",
-      price: 209,
+      brand: "FRESHO",
+       price: 209,
       strikedoffprice: 255,
       quantity:1
     },
@@ -19,7 +21,8 @@ var eggMeatFish = [
       image_url:
         "https://www.bigbasket.com/media/uploads/p/s/1221156_1-fresho-chicken-curry-cut-without-skin-500-g-chicken-breast-boneless-500-g.jpg",
          name: "Fresho Chicken Curry Cut Without Skin 500 g + Chicken Breast - Boneless 500 g, Combo 2 Items",
-      price: 297.35,
+      brand: "FRESHO",
+       price: 297.35,
       strikedoffprice: 479,
       quantity:1
     },
@@ -27,7 +30,8 @@ var eggMeatFish = [
       image_url:
       "https://www.bigbasket.com/media/uploads/p/s/40227694_1-fresho-rohu-bengali-cut-large-fresh.jpg",
       name:"Fresho Rohu Fish Curry Cut/Bengali Cut, 250 g With Head",
-      price: 116,
+      brand: "FRESHO",
+       price: 116,
       strikedoffprice: 194,
       quantity:1
     },
@@ -35,7 +39,8 @@ var eggMeatFish = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/1221156_1-fresho-chicken-curry-cut-without-skin-500-g-chicken-breast-boneless-500-g.jpg",
            name: "Fresho Chicken Curry Cut Without Skin 500 g + Chicken Breast - Boneless 500 g, Combo 2 Items",
-        price: 297.35,
+        brand: "FRESHO",
+       price: 297.35,
         strikedoffprice: 479,
         quantity:1
       },
@@ -43,7 +48,8 @@ var eggMeatFish = [
         image_url:
         "https://www.bigbasket.com/media/uploads/p/s/40227694_1-fresho-rohu-bengali-cut-large-fresh.jpg",
         name:"Fresho Rohu Fish Curry Cut/Bengali Cut, 250 g With Head",
-        price: 116,
+        brand: "FRESHO",
+       price: 116,
         strikedoffprice: 194,
         quantity:1
       },
@@ -51,7 +57,8 @@ var eggMeatFish = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/10000909_8-fresho-chicken-curry-cut-without-skin-antibiotic-residue-free.jpg",
           name: "Fresho Chicken - Curry Cut Without Skin, Antibiotic Residue-Free, 6 To 9 Pcs, 250 g",
-        price: 80,
+        brand: "FRESHO",
+       price: 80,
         strikedoffprice: 120,
         quantity:1
       },
@@ -59,7 +66,8 @@ var eggMeatFish = [
         image_url:
           "https://www.bigbasket.com/media/uploads/p/s/150502_6-fresho-farm-eggs-table-tray-medium-antibiotic-residue-free.jpg",
            name: "Fresho Farm Eggs - Table Tray, Medium, Antibiotic Residue-Free, 30 pcs",
-        price: 209 ,
+        brand: "FRESHO",
+       price: 209 ,
         strikedoffprice: 255,
         quantity:1
       },
@@ -118,10 +126,10 @@ function eggMeatFishFun(eggMeatFishArr){
         plusInput.setAttribute("class","plus")
        
         minInput.addEventListener("click",function(){
-          decreaseCount(event, this,el)
+          decreaseCount(dataInput,el)
         }) 
         plusInput.addEventListener("click",function(){
-          increaseCount(event, this,el)
+          increaseCount(dataInput,el)
         }) 
 
         let button=document.createElement("button")
@@ -138,21 +146,23 @@ function eggMeatFishFun(eggMeatFishArr){
     
 }
 
-var cartArr=JSON.parse(localStorage.getItem("cart-list")) || []
+var cartItems=JSON.parse(localStorage.getItem("cartItems")) || []
 
 function addtoCart(product){
   
-  var pres=ifPresent(product.name,cartArr)
-if(pres==true){
-  alert("This product is already added!")
-}
+  var pres=ifPresent(product.name,cartItems)
+  if(pres==true){
+    alert("This product is already added!")
+  }
   else{
-    cartArr.push(product);
-    localStorage.setItem("cart-list",JSON.stringify(cartArr))
+    cartItems.push(product);
+    cartTotal = parseInt(cartTotal) + product.price
+    localStorage.setItem("cartItems",JSON.stringify(cartItems))
+    localStorage.setItem("cartItems",JSON.stringify(cartItems))
     alert("Successfully added to the cart.")
   }
   
-  document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
+  document.getElementById("totaItems").textContent=cartItems.length+ " items"
 }
 
 function ifPresent(nameKey, myArray){
@@ -163,7 +173,9 @@ function ifPresent(nameKey, myArray){
 }
 }
 
-document.getElementById("totaItems").textContent=JSON.parse(localStorage.getItem("cart-list")).length+ " items"
+document.querySelector("body").setAttribute("style", "align-items:center; height: 80vh;background-image: url('https://img.freepik.com/free-vector/geometric-frame-background-green-modern-design-vector_53876-157567.jpg?size=626&ext=jpg&ga=GA1.2.232835331.1679132289&semt=ais'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;")
+
+document.getElementById("totaItems").textContent=cartItems.length+ " items"
 
 document.getElementById("filterByPrice").addEventListener("change",sortByPriceFun)
 
@@ -192,25 +204,27 @@ function sortByPriceFun(){
          eggMeatFishFun(arr)
 }
 
-function increaseCount(a, b, elem) {
-  var input = b.previousElementSibling;
-  var value = parseInt(input.value, 10); 
-  value = isNaN(value)? 0 : value;
-  value ++;
-  input.value = value;
-  elem.quantity=value;
-  
-}
-function decreaseCount(a, b,elem) {
-  var input = b.nextElementSibling;
-  var value = parseInt(input.value, 10); 
-  if (value > 1) {
-    value = isNaN(value)? 0 : value;
-    value --;
-    input.value = value;
-    elem.quantity=value;
+function decreaseCount(a,item){
+  if(item.quantity > 0){
+      item.quantity--;
+      a.value = item.quantity;
+      cartTotal -= item.price;
+      localStorage.setItem('cartItems',JSON.stringify(cartItems));
+      localStorage.setItem('cartTotal',cartTotal);
+      console.log(item.quantity);
   }
 }
+
+function increaseCount(a,item){
+  // if(item)
+  item.quantity++;
+  a.value = item.quantity;
+  cartTotal = parseInt(cartTotal) + item.price;
+  localStorage.setItem('cartItems',JSON.stringify(cartItems));
+  localStorage.setItem('cartTotal',cartTotal);
+  console.log( item.quantity);
+}
+
 function imageClick(url){
   window.location=url;
 }
