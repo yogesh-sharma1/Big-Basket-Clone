@@ -4,6 +4,12 @@ let currElement=JSON.parse(localStorage.getItem("product-details"))
 let image=document.createElement("img")
 image.setAttribute("src",currElement.image_url)
 
+var users = JSON.parse(localStorage.getItem('users')) || [];
+var userLogin = document.getElementById('userLogin');
+
+if(users.length > 0){
+    userLogin.textContent = users[users.length-1].name;
+}
 
 let name1=document.createElement("p")
 name1.textContent=currElement.name

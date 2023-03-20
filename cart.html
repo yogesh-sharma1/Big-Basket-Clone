@@ -70,7 +70,7 @@
           </p>
     
           <p>
-            <a id="userLogin" style="background-color: white;" href="../../signup and signin/signin.html">Login/Sign Up</a>
+            <a id="userLogin" style="background-color: white;" href="signin.html">Login/Sign Up</a>
           </p>
         </div>
         <!-- end of homepage addresbar -->
@@ -84,7 +84,7 @@
             <i style="margin-left: -5px; background-color: #84c225; color: white; padding: 10px;" class="fa fa-search"></i>
           </div>
           <div id="cartBasket" class="tooltip">
-            <a style="background-color: whitesmoke;" href="../Big basket/Yogesh/cart.html">
+            <a style="background-color: whitesmoke;" href="cart.html">
               <img style="margin-top: -15px;" src="https://www.crushpixel.com/big-static18/preview4/shopping-basket-3116850.jpg" alt="basketImage">
             </a>
             <div id="basketItems">
@@ -130,7 +130,7 @@
                 <h3>Try Fresh Groceries Today!</h3>
             </div>
             <div>
-                <button class="btn2"><a href="../../BigBasket/index.html">Add Items</a></button>
+                <button class="btn2"><a href="index.html">Add Items</a></button>
             </div>
         </div>
         <div id="parent">
@@ -156,7 +156,7 @@
                     <h1>Your Basket (<span id="span-items">4 items</span>)</h1>
                     <div style="display: flex; justify-content: space-around;">
                         <button onclick="clearCart()">Empty Cart</button>
-                        <button><a href="../../BigBasket/index.html">Add Items</a></button>
+                        <button><a href="index.html">Add Items</a></button>
                     </div>
                 </div>
             </div>
@@ -224,7 +224,7 @@
     var userLogin = document.getElementById('userLogin');
     
     if(users.length > 0){
-        userLogin.textContent = users[0].name;
+        userLogin.textContent = users[users.length-1].name;
     }
     
     var totalItems = document.getElementById('span-items');

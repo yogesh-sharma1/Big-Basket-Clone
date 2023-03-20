@@ -51,7 +51,7 @@ var mySmartBasket = [
   var userLogin = document.getElementById('userLogin');
   
   if(users.length > 0){
-      userLogin.textContent = users[0].name;
+      userLogin.textContent = users[users.length-1].name;
   }
 
 displayMySmartBasket(mySmartBasket)
