@@ -18,28 +18,36 @@
  }
 
 // Handle form submission for signing up
+// Handle form submission for signing up
 function handleSignUp(event) {
-event.preventDefault();
-const name = nameInput.value;
-const emailOrPhone = emailOrPhoneInput.value;
-const password = passwordInput.value;
+  event.preventDefault();
+  const name = nameInput.value;
+  const emailOrPhone = emailOrPhoneInput.value;
+  const password = passwordInput.value;
 
-// Check if any field is empty
-if (!name || !emailOrPhone || !password) {
- alert('Please fill in all fields');
- return;
+  // Check if any field is empty
+  if (!name || !emailOrPhone || !password) {
+    alert('Please fill in all fields');
+    return;
+  }
+
+  // Check if the password is at least 8 characters long
+  if (password.length < 8) {
+    alert('Password should be 8 characters or more');
+    return;
+  }
+
+  // Check if the user already exists in local storage
+  if (userExists(emailOrPhone)) {
+    alert('An account with that email or phone number already exists. Please sign in or use a different email or phone number.');
+  } else {
+    // If the user doesn't exist, sign them up and save their information to local storage
+    signUp(name, emailOrPhone, password);
+    alert('Welcome! Your account has been created.');
+    window.location.href = 'signin.html';
+  }
 }
 
-// Check if the user already exists in local storage
-if (userExists(emailOrPhone)) {
- alert('An account with that email or phone number already exists. Please sign in or use a different email or phone number.');
-} else {
- // If the user doesn't exist, sign them up and save their information to local storage
- signUp(name, emailOrPhone, password);
- alert('Welcome! Your account has been created.');
- window.location.href = 'signin.html';
-}
-}
 
 
  // Attach event listener to the sign up button
