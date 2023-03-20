@@ -226,18 +226,18 @@
     if(users.length > 0){
         userLogin.textContent = users[0].name;
     }
-
+    
     var totalItems = document.getElementById('span-items');
     totalItems.textContent = cartItems.length + " items";
-
+    
     document.getElementById('totaItems').textContent = cartItems.length + " Items";
-
+    
     var cartDiv = document.getElementById('parent');
     var cartTotal = localStorage.getItem('cartTotal') || 0;
-
+    
     var emptyCart = document.getElementById('empty-cart');
     var emptyImage = document.createElement('img');
-
+    
     if(cartItems.length > 0){
         emptyCart.style.display = "none";
         document.getElementById('parent').style.display="initial";
@@ -249,19 +249,21 @@
         document.getElementById('parent-2').style.display="none";
     }
     
-
-    cartItems.map((elem)=>{
-        var div = document.createElement('div');
+    display();
+    function display(){
         
-        var leftdiv = document.createElement('div');
-        leftdiv.setAttribute('id','leftdiv');
-        
-        var img = document.createElement('img');
-        img.setAttribute('src',elem.image_url);
-        
-        var infoDiv = document.createElement('div');
-        var brand = document.createElement('p');
-        brand.textContent = elem.brand;
+        cartItems.map((elem,idx)=>{
+            var div = document.createElement('div');
+            
+            var leftdiv = document.createElement('div');
+            leftdiv.setAttribute('id','leftdiv');
+            
+            var img = document.createElement('img');
+            img.setAttribute('src',elem.image_url);
+            
+            var infoDiv = document.createElement('div');
+            var brand = document.createElement('p');
+            brand.textContent = elem.brand;
         brand.style.fontSize = "18px"
         brand.style.color = "rgb(170, 170, 170)"
         var name = document.createElement('p');
@@ -270,7 +272,7 @@
         price.textContent = "Rs." + elem.price;
         price.style.fontSize = "18px"
         price.style.color = "rgb(170, 170, 170)"
-
+        
         infoDiv.append(name, brand, price);
         leftdiv.append(img, infoDiv);
         
@@ -295,7 +297,7 @@
         btn2.addEventListener('click', function(){
             incQuantity(elem,itemPrice,subTotal,quantity);
         });
-
+        
         var costDiv = document.createElement('div');
         
         var subTotal = document.createElement('p');
@@ -305,13 +307,26 @@
         itemPrice.style.fontSize = "16px"
         itemPrice.style.color = "green"
         
+        var span = document.createElement("span");
+        span.textContent = " X ";
+        span.style.color = "white";
+        span.style.border = "1px solid white";
+        span.style.padding = "3px";
+        span.style.backgroundColor = "green";
+        
+        span.addEventListener('click', function(){
+            handleDelete(idx);
+        })
+        
         
         costDiv.append(subTotal, itemPrice);
-        rightdiv.append(quantityDiv, costDiv);
+        rightdiv.append(quantityDiv, costDiv,span);
         
         div.append(leftdiv, rightdiv);
         cartDiv.append(div);
     })
+    
+}
 
     var totalDiv = document.createElement('div');
     totalDiv.setAttribute('class','cart-2')
@@ -441,6 +456,11 @@
         document.querySelector("#cart").setAttribute("style", " align-items:center; height: 80vh;background-image: url('https://img.freepik.com/free-vector/geometric-frame-background-green-modern-design-vector_53876-157567.jpg?size=626&ext=jpg&ga=GA1.2.232835331.1679132289&semt=ais'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;")
         document.getElementById('parent').style.display="none";
         document.getElementById('parent-2').style.display="none";      
+    }
+
+    function handleDelete(index){
+        cartItems.splice(index,1);
+        display();
     }
 
 </script>
