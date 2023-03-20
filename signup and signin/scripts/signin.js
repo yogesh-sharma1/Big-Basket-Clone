@@ -26,7 +26,7 @@ function handleSignIn(event) {
     // If the user exists, check their password
     if (user.password === password) {
       alert('Welcome back!'+' '+user.name);
-      window.location.href = 'index.html';
+      window.location.href = '/BigBasket/index.html';
     } else {
       const changePassword = confirm('Incorrect password. Would you like to change your password?');
       if (changePassword) {
